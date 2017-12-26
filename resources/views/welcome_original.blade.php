@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-            <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -19,17 +18,8 @@
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
-                margin: 10;
+                margin: 0;
             }
-            @media (max-width: 360px){
-				#title{
-					font-size: 44px;
-				}
-				.links {
-					font-size: 8px;
-					font-weight: 300;
-				}
-			}
 
             .full-height {
                 height: 100vh;
@@ -59,7 +49,7 @@
                 font-size: 84px;
             }
 
-            .links {
+            .links > a {
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 12px;
@@ -70,12 +60,12 @@
             }
 
             .m-b-md {
-                margin-bottom: 20px;
+                margin-bottom: 30px;
             }
         </style>
     </head>
-    <body> <div class="container-fluid">
-        <div class="flex-center full-height">
+    <body>
+        <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -88,40 +78,18 @@
             @endif
 
             <div class="content">
-                <div id="title" class="title m-b-md">
-                    TheInternship
+                <div class="title m-b-md">
+                    Laravel
                 </div>
 
-                	Build your skill with industrial standard by doing internships in 
-                	<div class="divider"> </div>
-                	<br />
-                <div class="row">
-                	<form method="post" action="/search">
-                		{!! csrf_field() !!}
-
-	                    <div id ="search" class="col-xs-5 col-sm-3 col-md-3">
-	                    	<span class="links"> search keyword </span>
-	                    <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
-	                    </div>
-	                    
-	                    <div id="country-search" class="col-xs-5 col-sm-3 col-md-3">
-	                    	<span class="links"> country</span>
-	                    <input type="text" name="country" class="form-control" placeholder="country">
-	                    </div>
-	                    <div id="state-search" class="col-xs-5 col-sm-3 col-md-3">
-	                    	<span class="links"> state</span>
-	                    <input type="text" name="state" class="form-control" placeholder="state">
-	                    </div>
-	                    <div class="col-xs-3 col-sm-3 col-md-3">
-	                    	<span class="links"> &nbsp</span>
-	                    <button type="button" class="btn btn-primary">search</button>
-	                    </div>
-                	</form>
+                <div class="links">
+                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://laravel-news.com">News</a>
+                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
         </div>
-
-    </div>
-<script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
