@@ -17,8 +17,8 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
             $table->integer('category_id')->unsigned();
             $table->integer('address_id')->unsigned();
-            $table->enum('internship_reward',['paid','not paid','allowance']);
             $table->string('name');
+            $table->enum('internship_reward',['paid','not paid','allowance']);
             $table->string('logo');
             $table->text('description');
             $table->string('website');

@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- bootstrap select -->
+    <link rel="stylesheet" href="{{ URL::to('bootstrap-select/css/bootstrap-select.css') }}">
+
 </head>
 <body>
     <div id="app">
@@ -76,5 +79,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+
+    <!-- bootstrap select -->
+    <script src="{{ URL::to('bootstrap-select/js/bootstrap-select.js') }}"></script>
+
 </body>
 </html>

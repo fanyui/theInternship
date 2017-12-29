@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Country;
 class HomeController extends Controller
 {
     /**
@@ -24,5 +24,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function layouts()
+    {
+        $countries = Country::get();
+        return view('welcome')->with('countries', $countries);
     }
 }

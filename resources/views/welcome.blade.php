@@ -7,6 +7,9 @@
 
         <title>Laravel</title>
             <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+             <!-- bootstrap select -->
+    <link rel="stylesheet" href="{{ URL::to('bootstrap-select/css/bootstrap-select.css') }}">
+
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -96,32 +99,72 @@
                 	<div class="divider"> </div>
                 	<br />
                 <div class="row">
-                	<form method="post" action="/search">
+                	<div class="form-group {{ $errors->has('country') || $errors->has('city') || $errors->has('state') ? ' has-error' : '' }}">
                 		{!! csrf_field() !!}
 
-	                    <div id ="search" class="col-xs-5 col-sm-3 col-md-3">
-	                    	<span class="links"> search keyword </span>
-	                    <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
-	                    </div>
+	                    <div  class="col-md-2 col-sm-4">
 	                    
-	                    <div id="country-search" class="col-xs-5 col-sm-3 col-md-3">
-	                    	<span class="links"> country</span>
-	                    <input type="text" name="country" class="form-control" placeholder="country">
-	                    </div>
-	                    <div id="state-search" class="col-xs-5 col-sm-3 col-md-3">
-	                    	<span class="links"> state</span>
-	                    <input type="text" name="state" class="form-control" placeholder="state">
-	                    </div>
-	                    <div class="col-xs-3 col-sm-3 col-md-3">
+	                    <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
+	                       <span > search keyword </span>
+                        </div>
+	                    
+	                    <div class="col-md-2 col-sm-4 {{ $errors->has('country') ? ' has-error' : '' }}">
+        <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="Select " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
+            @if ($countries->count())
+                @foreach($countries as $country)
+                    <option value="{{$country->id}}" {{ old('country') == $country->id ? 'selected' : null }} > {{ $country->name}} </option>
+                @endforeach
+            @endif
+        </select>
+        <center>Country <a style="display: inline-block;" href="#" class="cant-find" data-missing="country" >{{-- Can't find my country --}}</a></center>
+
+        @if ($errors->has('country'))
+            <span class="help-block">
+                <strong>{{ $errors->first('country') }}</strong>
+            </span>
+        @endif
+    </div> 
+
+    <div class="col-md-2 col-sm-5 {{ $errors->has('state') ? ' has-error' : '' }}">
+        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select State" id="state"  name="state">
+        </select>
+        <center>State <a style="display: inline-block;" href="#" class="cant-find" data-missing="state" >{{-- Can't find my state --}}</a></center>
+
+        @if ($errors->has('state'))
+            <span class="help-block">
+                <strong>{{ $errors->first('state') }}</strong>
+            </span>
+        @endif
+    </div>
+
+    <div class="col-md-2 col-sm-4 col-md-offset-0 col-sm-offset-2 {{ $errors->has('city') ? ' has-error' : '' }}">
+        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select City" id="city"  name="city">
+        </select>
+        <center>Town / City <a style="display: inline-block;" href="#" class="cant-find" data-missing="city" >{{-- Can't find my town --}}</a> </center>
+        @if ($errors->has('city'))
+            <span class="help-block">
+                <strong>{{ $errors->first('city') }}</strong>
+            </span>
+        @endif
+    </div>
+	                    <div class="col-xs-12 col-sm-6 col-md-3">
 	                    	<span class="links"> &nbsp</span>
-	                    <button type="button" class="btn btn-primary">search</button>
+	                    <button type="submit" class="btn btn-lg btn-primary">search</button>
 	                    </div>
-                	</form>
+                	</div> 
                 </div>
             </div>
         </div>
 
+
+
+
+
     </div>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+
+    <!-- bootstrap select -->
+    <script src="{{ URL::to('bootstrap-select/js/bootstrap-select.js') }}"></script>
     </body>
 </html>

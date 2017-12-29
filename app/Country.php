@@ -10,4 +10,8 @@ class Country extends Model
  	{
   		return $this->hasMany(\App\State::class);
  	}
+ 	public function company()
+ 	{
+ 		return $this->hasMany(\App\Company::class);
+ 	}
 }
