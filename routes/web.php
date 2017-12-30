@@ -24,6 +24,6 @@ Route::get('/search', 'SearchController@search')->name('search');
 Route::get('/search/details/{company}', 'SearchController@searchDetails')->name('search-details');
 
 Route::post('/country/states', 'LocationController@ajax_country_states');
-Route::post('/state/cities', 'LocationCtrl@ajax_states_cities');
+Route::post('/state/cities', 'LocationController@ajax_states_cities');
 
 Route::get('/company/new', 'CompanyController@index');

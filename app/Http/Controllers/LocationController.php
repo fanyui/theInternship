@@ -18,13 +18,9 @@ class LocationController extends Controller
     //Receive country id and send json data of state
     public function ajax_country_states(Request $Request)
     {
-    	dd(Input::all());
-    	die();
     	$country_id = Input::get('country_id');
     	$states = Country::find($country_id)->states;
-    	if(!$states){
-    		dd("no state found");
-    	}
+    	
     	return $states;
     }
 

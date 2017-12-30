@@ -1,4 +1,5 @@
 var base_url = window.location.protocol + '//' + window.location.host;
+    
     $.ajaxSetup({
         headers: {
             'X-CSRF-Token': $('meta[name=csrf-token]').attr('content')
@@ -51,6 +52,9 @@ var base_url = window.location.protocol + '//' + window.location.host;
             type: "POST",
             url: base_url + "/state/cities",
             data: data,
+             beforeSend: function() {
+                    alert(data['state_id']);
+                },
             success: function(cities_obj) {
                 var cities_elt = document.getElementById("city")
                 $('option', cities_elt).remove();

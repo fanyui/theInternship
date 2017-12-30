@@ -18,6 +18,8 @@ class CreateAddressesTable extends Migration
             $table->string('email')->unique();
             $table->string('telephone');
             $table->integer('country_id');
+            $table->integer('state_id');
+            $table->integer('city_id');
             $table->timestamps();
         });
     }
