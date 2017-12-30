@@ -15,6 +15,9 @@
 //     return view('welcome');
 // });
 
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::get('/', 'SearchController@layouts')->name('index');
 Auth::routes();
 
