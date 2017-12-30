@@ -180,6 +180,9 @@ return [
         //Socialite service provider
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        //google map
+        Cornford\Googlmapper\MapperServiceProvider::class,
+
     ],
 
     /*
@@ -230,7 +233,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         //socialite
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        //google map
+        'Mapper'    => Cornford\Googlmapper\Facades\MapperFacade::class,
 
     ],
 
