@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\User;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -58,7 +59,7 @@ class LoginController extends Controller
     {
 
 
-        $user = Socialite::driver($provider)->user();
+        $user = Socialite::driver($provider)->stateless()->user();
 
         
         // // All Providers
