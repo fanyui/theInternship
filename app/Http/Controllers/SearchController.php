@@ -15,6 +15,9 @@ class SearchController extends Controller
 		$company = Company::get();
 		// $company = Company::where('country_id', $request->country)->where('state_id', $request->state);
 
+		/*Todo 
+		* if country is not specified in the search string use the default browser location
+		*/
 		return view('search.result')->with('companies',$company);
 		return $company;
 	}
