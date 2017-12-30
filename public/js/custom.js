@@ -7,6 +7,11 @@ var base_url = window.location.protocol + '//' + window.location.host;
     /* ---------------- 
      * AJAX REQURESTS FOR COUNTRY STATE AND CITY
      */
+     
+     /* ---------------- 
+     * get all the states from the country
+     */
+
     $("#country").change(function() {
         var data = {
             country_id: $('#country').val()
@@ -15,6 +20,9 @@ var base_url = window.location.protocol + '//' + window.location.host;
             type: "POST",
             url: base_url + "/country/states",
             data: data,
+            beforeSend: function() {
+                    alert(data['country_id']);
+                },
             success: function(states_obj) {
                 var cities_elt = document.getElementById("city")
                 var states_elt = document.getElementById("state")
@@ -26,6 +34,7 @@ var base_url = window.location.protocol + '//' + window.location.host;
                 $('select').selectpicker('refresh');
             },
             failure: function(data) {
+                alert("error occured")
                 console.log("failed badly")
             }
         })

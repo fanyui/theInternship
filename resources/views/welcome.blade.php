@@ -149,7 +149,7 @@
     </div>
 	                    <div class="col-xs-12 col-sm-6 col-md-3">
 	                    	<span class="links"> &nbsp</span>
-	                    <button type="submit" class="btn btn-lg btn-primary">search</button>
+	                    <button  class="btn btn-lg btn-primary">search</button>
 	                    </div>
                 	</div> 
                 </div>
