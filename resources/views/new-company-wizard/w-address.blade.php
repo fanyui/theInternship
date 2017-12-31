@@ -1,15 +1,7 @@
 
-<form>
-
 	<div class="row">
         	<div class="form-group {{ $errors->has('country') || $errors->has('city') || $errors->has('state') ? ' has-error' : '' }}">
         		{!! csrf_field() !!}
-
-                <div  class="col-md-2 col-sm-4">
-                
-                	<input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
-                   <span > search keyword </span>
-                </div>
                 
                 <div class="col-md-2 col-sm-4 {{ $errors->has('country') ? ' has-error' : '' }}">
 			        <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="Select " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
@@ -54,12 +46,6 @@
     </div>
 
 
-        <div class="col-xs-12 col-sm-6 col-md-3">
-        	<span class="links"> &nbsp</span>
-        	<button  class="btn btn-lg btn-primary">submit</button>
-        </div>
-       
-</form>
 
 
 
@@ -67,3 +53,6 @@
 	
 	<div class="col col-md-8"> Map</div>
 </div>
+        <div class="col-md-6 col-sm-offset-3 pull-right">
+        	<button  class="btn btn-lg btn-primary col-md-12" >Next</button>
+        </div>

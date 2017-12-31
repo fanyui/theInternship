@@ -1,0 +1,12 @@
+.del-listing-image{
+	/*width: 100%; */
+	margin: 5px auto; 
+}
+.del-listing-image form{ margin: 0px; }
+.del-listing-image form button{
+	position: absolute;
+	padding: 5px 20px;
+	font-weight: 500; 
+	border-radius: 0px;
+	border: none;
+}
