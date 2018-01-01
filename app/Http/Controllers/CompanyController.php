@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Custom\Custom;
+use App\Address;
+use App\Company;
+use App\Media;
 
 class CompanyController extends Controller
 {
@@ -18,8 +22,8 @@ class CompanyController extends Controller
 		            'telephone'     => $request->telephone,
 		            'email'    => $request->email,
 		            'country_id' => $request->country_id,
-		            'state_id' => $request->state_id
-		            'city_id' => $request->city_id
+		            'state_id' => $request->state_id,
+		            'city_id' => $request->city_id,
 		        ]);
 
     	$company = new Company();
@@ -47,8 +51,12 @@ class CompanyController extends Controller
     	$company->category_id = $request->category_id;
 
     	//upload the logo and extract the name
-    	$company->logo = $request->logo;
-    	$company->image = $request->image;
+    	if(isset($request->logo) ){
+    		$company->logo =  Custom::fileUpload($request->logo, 'uploads/company/logo', null, null);
+    	}
+    	if(isset($request->image)){
+    		$company->image = Custom::fileUpload($request->image, 'uploads/company', null, config('settings.img_resize'));
+    	}
 
     	$company->save();
     }
@@ -62,6 +70,7 @@ class CompanyController extends Controller
     //save the media object for the form above to a particular company you are applying for
     public function storeMedia(Request $request)
     {
+    	Custom::uploadCV($request->cv, 'uploads/company/letters', null);
     	$media = new Media();
     	$media->company_id = $request->company_id;
     	$media->application_type = $request->application_type;
@@ -70,8 +79,8 @@ class CompanyController extends Controller
     	$media->application_letter_text = $request->application_letter_text;
 
     	//extract the name and save in the dbase while sending the files to uploads folder
-    	$media->cv = $request->cv;
-    	$media->application_letter = $request->application_letter;
+    	$media->cv = Custom::uploadCV($request->cv, 'uploads/company/letters', null);
+    	$media->application_letter =Custom::uploadCV($request->application_letter, 'uploads/company/letters', null); 
 
     	$media->save();
     }
