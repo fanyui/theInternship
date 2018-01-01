@@ -180,8 +180,16 @@ return [
         //Socialite service provider
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+
         //google map
         Cornford\Googlmapper\MapperServiceProvider::class,
+
+        // Image Optimzation Library 
+        Approached\LaravelImageOptimizer\ServiceProvider::class,
+
+        // Intevention image manipulator
+        Intervention\Image\ImageServiceProvider::class,
+
 
     ],
 
@@ -235,8 +243,12 @@ return [
         //socialite
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
+
         //google map
         'Mapper'    => Cornford\Googlmapper\Facades\MapperFacade::class,
+
+        //Image intevention
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 

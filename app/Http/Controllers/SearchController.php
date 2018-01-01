@@ -31,7 +31,8 @@ class SearchController extends Controller
 		$company = Company::find($company);
 		$address = $company->address()->first();
 		$CompanyHasCategory = $company->CompanyHasCategory()->get();
-		Mapper::map($company->latitude, $company->longitude);
+		Mapper::map($company->latitude, $company->longitude,['draggable' => true, 'eventDragEnd' => 'console.log(event.latLng.lat()); console.log(event.latLng.lng());']);
+
 		return view('search.searchdetails')->with('company', $company)
 											->with('address', $address)
 											->with('CompanyHasCategories', $CompanyHasCategory);
