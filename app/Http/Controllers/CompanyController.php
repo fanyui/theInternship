@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
 use App\Country;
 use App\Custom\Custom;
 use App\Address;
@@ -73,16 +74,17 @@ class CompanyController extends Controller
     //save the media object for the form above to a particular company you are applying for
     public function storeMedia(Request $request)
     {
-    	Custom::uploadCV($request->cv, 'uploads/company/letters', null);
     	$media = new Media();
     	$media->company_id = $request->company_id;
-    	$media->application_type = $request->application_type;
+    	$media->application_type = 1;
     	$media->user_id = Auth::user()->id;
+
     	$media->multivation_letter = $request->multivation_letter;
     	$media->application_letter_text = $request->application_letter_text;
 
     	//extract the name and save in the dbase while sending the files to uploads folder
-    	$media->cv = Custom::uploadCV($request->cv, 'uploads/company/letters', null);
+    	$media->cv = Custom::fileUpload($request->cv, 'uploads/company/logo', null, null);
+    	// $media->cv = Custom::uploadCV($request->cv, 'uploads/company/letters', null);
     	$media->application_letter =Custom::uploadCV($request->application_letter, 'uploads/company/letters', null); 
 
     	$media->save();

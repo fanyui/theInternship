@@ -20,7 +20,7 @@ class CreateMediaTable extends Migration
             $table->integer('application_type');
             $table->text('application_letter_text')->nullable();
             $table->string('cv');
-            $table->string('multivation_letter')->nullable();
+            $table->text('multivation_letter')->nullable();
             $table->string('application_letter')->nullable();
             $table->timestamps();
         });

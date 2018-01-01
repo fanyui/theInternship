@@ -14,7 +14,7 @@ use Carbon\Carbon;
 class Custom
 {
 	
-	function __construct(argument)
+	function __construct()
 	{
 		# code...
 	}
