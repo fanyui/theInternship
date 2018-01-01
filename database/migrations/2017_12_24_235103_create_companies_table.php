@@ -25,6 +25,7 @@ class CreateCompaniesTable extends Migration
             $table->integer('duration');//done
             $table->string('application_period'); //done
             $table->string('intern_number');//done
+            $table->string('image');
             $table->double('longitude')->nullable();
             $table->double('latitude')->nullable();
             $table->timestamps();
