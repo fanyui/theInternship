@@ -83,8 +83,9 @@ class CompanyController extends Controller
     	$media->application_letter_text = $request->application_letter_text;
 
     	//extract the name and save in the dbase while sending the files to uploads folder
-    	$media->cv = Custom::fileUpload($request->cv, 'uploads/company/logo', null, null);
-    	// $media->cv = Custom::uploadCV($request->cv, 'uploads/company/letters', null);
+    	// $media->cv = Custom::fileUpload($request->file('cv'), 'uploads/company', null,  config('settings.img_resize'));
+    	$media->cv = Custom::uploadCV($request->cv, 'uploads/company/letters', null);
+        //application letter upload
     	$media->application_letter =Custom::uploadCV($request->application_letter, 'uploads/company/letters', null); 
 
     	$media->save();
