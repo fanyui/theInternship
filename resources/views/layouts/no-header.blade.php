@@ -26,9 +26,14 @@
     @yield('extra_js')
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ URL::to('tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
 
     <!-- bootstrap select -->
     <script src="{{ URL::to('bootstrap-select/js/bootstrap-select.js') }}"></script>
+    <script type="text/javascript">
+        var TINY_MCE = tinymce.init({ selector:'.use-tinymce' });
+    </script>
 
 </body>
 </html>
