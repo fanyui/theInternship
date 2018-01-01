@@ -1,6 +1,10 @@
 <?php
 
 return [
+	'system' => [
+		'email' => 'theinternship@gmail.com', 
+		'tel' => '+237675955931', 
+	], 
 	// image resize parameters get the header and the thumbnail for the image
 	'img_resize' => [
         'header' => [
