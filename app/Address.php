@@ -12,4 +12,14 @@ class Address extends Model
     public function country(){
     	return $this->belongsTo(\App\Country::class);
     }
+
+    public function state()
+    {
+    	return $this->belongsTo(\App\State::class);
+    }
+
+     public function city()
+    {
+    	return $this->belongsTo(\App\City::class);
+    }
 }
