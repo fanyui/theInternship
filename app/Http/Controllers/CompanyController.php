@@ -11,6 +11,7 @@ use App\Address;
 use App\Company;
 use App\Media;
 use App\Category;
+use App\ApplicationType;
 
 class CompanyController extends Controller
 {
@@ -71,10 +72,11 @@ class CompanyController extends Controller
     }
 
     //renders the form to create an application to a company after login
-    public function media(Request $request)
+    public function media(Request $request, $company_id)
     {
-    	$application_type = null;
-    	return view('mediaForm')->with('application_type', $application_type)->with('company_id', 1);
+        $company = Company::find($company_id);
+    	$application_type = ApplicationType::get();
+    	return view('mediaForm')->with('application_type', $application_type)->with('company', $company );
     }
     //save the media object for the form above to a particular company you are applying for
     public function storeMedia(Request $request)
