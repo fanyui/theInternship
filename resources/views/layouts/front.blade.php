@@ -217,22 +217,19 @@
                 <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> Home</a>
                 <a href=""><small><i class="fa fa-building-o"></i></small> Companies</a>
                 <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> Contact us</a>
-              {{-- 
+             
                 <a href="{{ URL::to('') }}">Support</a>
                 <a href="{{ URL::to('') }}">License</a>
                 <a href="{{ URL::to('') }}">FAQ</a>
                 <a href="{{ URL::to('') }}">Privacy & Term</a>
-              --}}
+              
               </div>
 
-              <!-- <?php
-                //echo json_encode($_footerLocation);
-              ?> -->
+             
             </div>            
           </div>
           <div style="clear: both;"></div>
             <hr />
-            <h2 style="font-size: 20px">Quick Links</h2>
             
         </div>
       </div>
@@ -240,125 +237,6 @@
     </div>
   </footer>
   <!-- / Footer -->
-
- 
-  <div class="modal fade" id="request-a-demo-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Request a Demo</h4>
-        </div>
-          <form class="form-horizontal" role="form" method="POST" action="">
-              <div class="modal-body">
-                <div class="form-horizontal">  
-                  {!! csrf_field() !!}
-
-                  <div class="form-group {{ $errors->has('name') ? ' has-error' : 'name' }}">
-                      <label class="col-md-3 control-label">Name *</label>
-                      <div class="col-md-8">
-                        <input type="text" required name="name" class="form-control" value="{{ old('name') }}">
-                          @if ($errors->has(''))
-                              <span class="help-block">
-                                  <strong>{{ $errors->first('name') }}</strong>
-                              </span>
-                          @endif
-                      </div>
-                  </div>
-
-                  <div class="form-group {{ $errors->has('address') ? ' has-error' : 'address' }}">
-                      <label class="col-md-3 control-label">Address *</label>
-                      <div class="col-md-8">
-                        <input type="text" name="address" class="form-control" value="{{ old('address') }}">
-                          @if ($errors->has('address'))
-                              <span class="help-block">
-                                  <strong>{{ $errors->first('address') }}</strong>
-                              </span>
-                          @endif
-                      </div>
-                  </div>
-
-                  <div class="form-group {{ $errors->has('phone_number') ? ' has-error' : 'phone_number' }}">
-                      <label class="col-md-3 control-label">Phone Number *</label>
-                      <div class="col-md-8">
-                        <input type="text" name="phone_number" class="form-control" value="{{ old('phone_number') }}">
-                          @if ($errors->has(''))
-                              <span class="help-block">
-                                  <strong>{{ $errors->first('phone_number') }}</strong>
-                              </span>
-                          @endif
-                      </div>
-                  </div>
-
-                  <div class="form-group {{ $errors->has('email') ? ' has-error' : 'email' }}">
-                      <label class="col-md-3 control-label">Email</label>
-                      <div class="col-md-8">
-                        <input type="email" name="email" class="form-control" value="{{ old('email') }}">
-                          @if ($errors->has('email'))
-                              <span class="help-block">
-                                  <strong>{{ $errors->first('email') }}</strong>
-                              </span>
-                          @endif
-                      </div>
-                  </div>
-
-                  <div class="form-group {{ $errors->has('request') ? ' has-error' : 'request' }}">
-                      <label class="col-md-3 control-label">Request</label>
-                      <div class="col-md-4" align="center" style="line-height: 1;">
-                        <!-- <input type="checkbox" name="listing" class="form-control"> -->
-
-                        <label class="switch block">
-                          <input type="checkbox" name="property_listing" id="property_listing" value="{{ old('property_listing') }}" checked>
-                          <div class="slider round"></div>
-                        </label>
-                        @if ($errors->has('property_listing'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('property_listing') }}</strong>
-                            </span>
-                        @endif
-                        <label class="block"> Property Listing</label>
-                      </div>
-
-                      <div class="col-md-4" align="center" style="line-height: 1;">
-                        <!-- <input type="checkbox" name="listing" class="form-control"> -->
-
-                        <label class="switch block">
-                          <input type="checkbox" name="property_management" id="property_management" value="{{ old('property_management') }}" checked>
-                          <div class="slider round"></div>
-                        </label>
-                        @if ($errors->has('property_management'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('property_management') }}</strong>
-                            </span>
-                        @endif
-                        <label class="block"> Property Management</label>
-                      </div>
-                  </div>
-
-                  <div class="form-group {{ $errors->has('message') ? ' has-error' : 'message' }}">
-                      <label class="col-md-3 control-label">Message *</label>
-                      <div class="col-md-8">
-                        <textarea rows="6" required name="message" class="form-control" placeholder="Your message here pls ...">{{ old('message') }}</textarea>
-                          @if ($errors->has(''))
-                              <span class="help-block">
-                                  <strong>{{ $errors->first('message') }}</strong>
-                              </span>
-                          @endif
-                      </div>
-                  </div>
-                  <div class="form-group" id="request-a-demo-error-div"> </div>
-                  {{--
-                  --}}
-                </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-danger fa fa-times" data-dismiss="modal"> Close</button>
-                  <button type="submit" class="btn btn-primary fa fa-paper-plane" id="submit-request-for-demo"> Submit my request </button>
-              </div>
-          </form>
-      </div>
-    </div>
-  </div>
   
   {{-- Modals here --}}
   @include('modals')
