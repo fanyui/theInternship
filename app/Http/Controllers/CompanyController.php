@@ -10,59 +10,64 @@ use App\Custom\Custom;
 use App\Address;
 use App\Company;
 use App\Media;
+use App\Category;
 
 class CompanyController extends Controller
 {
     public function index(){
     	$countries = Country::get();
-    	 return view('new-company-wizard.new-company')->with('countries', $countries);
+        $categories = Category::get();
+    	 return view('new-company-wizard.new-company')->with('countries', $countries)
+                                                        ->with('categories', $categories);
     	 
     }
 
     //create a new company 
     public function new(Request $request)
     {
+
+        $company = new Company();
+        // $address = new Address();
+        // $address->email = $request->email;
+        // $address->telephone = $request->telephone;
+        // $address->country = $request->country;
+        // $address->state = $request->state;
+        // $address->city =$request->city;
+
+
+
+        
+
+        $company->name = $request->name;
+        $company->description = $request->description;
+        $company->duration = $request->duration;
+        $company->website = $request->website;
+        $company->application_period = $request->application_period;
+        $company->intern_number = $request->intern_number;
+        $company->longitude = $request->longitude;
+        $company->latitude = $request->latitude;
+        // $company->address_id = $address->id; 
+        $company->category_id = $request->category;
+        $company->internship_reward = $request->internship_reward;
+        //upload the logo and extract the name
+        if(isset($request->logo) ){
+            $company->logo =  Custom::fileUpload($request->logo, 'uploads/company/logo', null, null);
+        }
+        if(isset($request->images[0])){
+            $company->image = Custom::fileUpload($request->images, 'uploads/company', null, config('settings.img_resize'));
+        }
+
+        $company->save();
+
+
 		$address = Address::create([
 		            'telephone'     => $request->telephone,
 		            'email'    => $request->email,
-		            'country_id' => $request->country_id,
-		            'state_id' => $request->state_id,
-		            'city_id' => $request->city_id,
+                    'country_id' => $request->country,
+		            'state_id' => $request->state,
+		            'city_id' => $request->city,
+                    'company_id' => $company->id,
 		        ]);
-
-    	$company = new Company();
-    	// $address = new Address();
-    	// $address->email = $request->email;
-    	// $address->telephone = $request->telephone;
-    	// $address->country = $request->country;
-    	// $address->state = $request->state;
-    	// $address->city =$request->city;
-
-
-
-    	$addressSaved = $address->save();
-
-    	$company->name = $request->name;
-    	$company->description = $request->description;
-    	$company->duration = $request->duration;
-    	$company->website = $request->website;
-    	$company->application_period = $request->application_period;
-    	$company->intern_number = $request->intern_number;
-    	$company->longitude = $request->longitude;
-    	$company->latitude = $request->latitude;
-    	$company->internship_reward = $request->internship_reward;
-    	$company->address_id = $address->id;
-    	$company->category_id = $request->category_id;
-
-    	//upload the logo and extract the name
-    	if(isset($request->logo) ){
-    		$company->logo =  Custom::fileUpload($request->logo, 'uploads/company/logo', null, null);
-    	}
-    	if(isset($request->image)){
-    		$company->image = Custom::fileUpload($request->image, 'uploads/company', null, config('settings.img_resize'));
-    	}
-
-    	$company->save();
     }
 
     //renders the form to create an application to a company after login
