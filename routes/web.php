@@ -42,3 +42,4 @@ Route::get('/front', 'SearchController@front')->name('front');
 
 
 Route::get('/contact-us', 'SearchController@contactUs')->name('contact-us');
+Route::post('/contact-us', 'SearchController@contactUsForm')->name('submit-contactus');

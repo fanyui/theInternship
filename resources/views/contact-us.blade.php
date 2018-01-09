@@ -64,7 +64,7 @@
               <p>Your email address will not be published. Required fields are marked <strong class="required">*</strong></p>
             </div>
             <div class="aa-contact-form">
-              <form class="contactform" method="post" action="">  
+              <form class="contactform" method="post" action="{{route('submit-contactus')}}">  
               {{ csrf_field() }}                
                 <p class="comment-form-author">
                   <label for="author">Name <span class="required">*</span></label>
