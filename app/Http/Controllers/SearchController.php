@@ -7,6 +7,7 @@ use App\Company;
 use App\City;
 use App\Country;
 use App\Address;
+use Mapper;
 
 class SearchController extends Controller
 {
@@ -24,9 +25,14 @@ class SearchController extends Controller
 
 	public function searchDetails(Request $request, $company)
 	{
+
+		//Mapper::marker(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 'eventDragEnd' => 'console.log(event.latLng.lat()); console.log(event.latLng.lng());']);
+
 		$company = Company::find($company);
 		$address = $company->address()->first();
 		$CompanyHasCategory = $company->CompanyHasCategory()->get();
+		Mapper::map($company->latitude, $company->longitude,['draggable' => true, 'eventDragEnd' => 'console.log(event.latLng.lat()); console.log(event.latLng.lng());']);
+
 		return view('search.searchdetails')->with('company', $company)
 											->with('address', $address)
 											->with('CompanyHasCategories', $CompanyHasCategory);
