@@ -180,6 +180,12 @@ return [
         //Socialite service provider
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        // Image Optimzation Library 
+        Approached\LaravelImageOptimizer\ServiceProvider::class,
+
+        // Intevention image manipulator
+        Intervention\Image\ImageServiceProvider::class,
+
     ],
 
     /*
@@ -230,7 +236,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         //socialite
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        //Image intevention
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 

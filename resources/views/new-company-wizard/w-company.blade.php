@@ -16,7 +16,7 @@
                             <label for="name" class="col-md-4 control-label">Company Website</label>
 
                             <div class="col-md-6">
-                                <input id="website" type="text" class="form-control" name="website" value="{{ old('website') }}" required autofocus>
+                                <input id="website" type="text" class="form-control" name="website" value="{{ old('website') }}" required >
 
                                 @if ($errors->has('website'))
                                     <span class="help-block">
@@ -68,11 +68,28 @@
                             </div>
                         </div>
 
+                         <div class="form-group{{ $errors->has('intenship_reward') ? ' has-error' : '' }}">
+                            <label for="intenship_reward" class="col-md-4 control-label">Internship Reward</label>
+                            <div class="col-md-6">
+                            <select  class=" form-control selectpicker" data-live-search="true" title="Select Reward " tabindex="10"  name="intenship_reward" id="intenship_reward" value="{{ old('intenship_reward') }}" required>
+                                
+                                        <option value="paid" > Paid </option>
+                                        <option value="not paid" > Not Paid </option>
+                                        <option value="allowance" > Allowance </option>
+                            </select>
+                            @if ($errors->has('intenship_reward'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('intenship_reward') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        </div> 
+
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <label for="description" class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
-                                <textarea name="description" class="form-control" id="description" rows="3"></textarea> 
+                                <textarea name="description" class="form-control" id="description" rows="3" required></textarea> 
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">

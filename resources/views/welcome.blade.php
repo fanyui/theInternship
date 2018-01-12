@@ -166,7 +166,7 @@
 
 
 
-    </div>
+</div>
     <!-- footer -->
 <footer id="aa-footer">
     <div class="container">
@@ -225,6 +225,8 @@
   <!-- / Footer -->
 
     <!-- scripts -->
+
+<script src="{{ URL::to('jquery/jquery2.1.4.min.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 

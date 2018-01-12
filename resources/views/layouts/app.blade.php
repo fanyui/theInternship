@@ -85,6 +85,7 @@
      @include('modals')
  @yield('footer')
     <!-- Scripts -->
+    <script src="{{ URL::to('jquery/jquery2.1.4.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
 
