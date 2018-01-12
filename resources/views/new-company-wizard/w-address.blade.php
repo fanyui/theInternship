@@ -1,8 +1,10 @@
 
 <div class="row">
 	
-	<div class="col col-md-4"> Map
-
+	<div class="col col-md-4">
+			<!-- <div style="width: 500px; height: 500px;">  render the mapper minimum size is 500 by 500px-->
+				{!! Mapper::render() !!}
+			<!-- </div> -->
 		<!-- beginning of longitude and latitude code -->
 		<div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }}">
             <label for="longitude" class="col-md-4 control-label">Longitude</label>
