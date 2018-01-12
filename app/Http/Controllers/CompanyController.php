@@ -29,6 +29,26 @@ class CompanyController extends Controller
     //create a new company 
     public function new(Request $request)
     {
+        $this->validate($request, [
+            'telephone' => 'required|integer',
+            'email' => 'required|email',
+            'country_id' => 'required|integer',
+            'state_id' => 'required|integer',
+            'city_id' => 'required|integer',
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'website' => 'url',
+            'duration' => 'integer',
+            'application_period' => 'string',
+            'intern_number' => 'integer',
+            'longitude' => 'numeric',
+            'latitude' => 'numeric',
+            'internship_reward' => 'string',
+            'category_id' => 'integer',
+
+        ]);
+
+
 		$address = Address::create([
 		            'telephone'     => $request->telephone,
 		            'email'    => $request->email,
