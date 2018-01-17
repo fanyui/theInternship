@@ -22,7 +22,7 @@ var base_url = window.location.protocol + '//' + window.location.host;
             url: base_url + "/country/states",
             data: data,
             beforeSend: function() {
-                    alert(data['country_id']);
+                    
                 },
             success: function(states_obj) {
                 var cities_elt = document.getElementById("city")
@@ -53,7 +53,7 @@ var base_url = window.location.protocol + '//' + window.location.host;
             url: base_url + "/state/cities",
             data: data,
              beforeSend: function() {
-                    alert(data['state_id']);
+                   
                 },
             success: function(cities_obj) {
                 var cities_elt = document.getElementById("city")
