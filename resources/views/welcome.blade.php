@@ -167,6 +167,8 @@
 
 
     </div>
+
+<script src="{{ URL::to('jquery/jquery2.1.4.min.js') }}"></script>
     <!-- footer -->
 <footer id="aa-footer">
     <div class="container">

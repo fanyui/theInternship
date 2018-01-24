@@ -16,7 +16,7 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('category_id')->unsigned();
-            $table->integer('address_id')->unsigned();
+            // $table->integer('address_id')->unsigned();
             $table->string('name');//done
             $table->enum('internship_reward',['paid','not paid','allowance']);
             $table->string('logo');
