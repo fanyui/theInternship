@@ -21,4 +21,8 @@ class Company extends Model
 	{
 		return  $this->belongsTo(\App\Category::class);
 	}
+	public function images()
+	{
+		return $this->hasMany(\App\Image::class);
+	}
 }

@@ -90,7 +90,7 @@
 	    {{-- category  display --}}
 	    <div class="row">
 	    	<div class="col-md-2 col-sm-4 col-md-offset-2 col-sm-offset-2 {{ $errors->has('category') ? ' has-error' : '' }}">
-		        <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="Select " tabindex="10"  name="category" id="country" value="{{ old('category') }}" required="">
+		        <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="Select " tabindex="10"  name="category" id="category" value="{{ old('category') }}" required="">
 		            @if ($categories->count())
 		                @foreach($categories as $category)
 		                    <option value="{{$category->id}}" {{ old('category') == $category->id ? 'selected' : null }} > {{ $category->name}} </option>
