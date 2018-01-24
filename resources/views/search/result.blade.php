@@ -14,13 +14,15 @@
 		</div>
 
 		<div class="col col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-			@foreach($companies as $company)
-				<a href="{{ route('search-details',['slug' => $company->id ]) }} " target="_blank"> <h3> {{ $company->name }}</h3></a>
 
-				<p>{{ substr($company->description, 0, 300) }} 
-					<a href="{{ route('search-details',['slug' => $company->id ]) }} "> view more</a>
-				</p>
-			@endforeach
+				@foreach($companies as $company)
+					<a href="{{ route('search-details',['slug' => $company->id ]) }} " target="_blank"> <h3> {{ $company->name }}</h3></a>
+
+					<p>{{ substr($company->description, 0, 300) }} 
+						<a href="{{ route('search-details',['slug' => $company->id ]) }} "> view more</a>
+					</p>
+				@endforeach
+
 		</div>
 		
 		<div class="col col-xs-12 col-sm-6 col-md-3 col-lg-3">

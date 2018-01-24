@@ -15,14 +15,92 @@ class SearchController extends Controller
 {
 	public function search(Request $request)
 	{
-		$company = Company::get();
-		// $company = Company::where('country_id', $request->country)->where('state_id', $request->state);
+		$company = null;
+        
 
+        // 
+
+         /************************************************
+        **when company and state are provided  checking **
+        **    only for state because if it haas state   **
+        **    then country must have been selected      **
+        **                                              **
+        *************************************************/
+        if($request->has('state') && !$request->has('city')){
+    		$company = Company::whereHas('address',function($q) use ($request){
+                            $q->where('country_id', $request->get('country'))
+                                ->where('state_id', $request->get('state'));
+                            });
+        }
+
+
+         /************************************************
+        **                                              **
+        **                                              **
+        **    when country  only is provided            **
+        **                                              **
+        *************************************************/
+        if($request->has('country') && !$request->has('state') && !$request->has('city')){
+            $company = Company::whereHas('address',function($q) use ($request){
+                        $q->where('country_id', $request->get('country'));
+                        });
+        }
+
+        /************************************************
+        **                                              **
+        **                                              **
+        **     When all the three are present           **
+        **                                              **
+        *************************************************/
+        if($request->has('country') && $request->has('state') && $request->has('city')){
+            $company = Company::whereHas('address',function($q) use ($request){
+                            $q->where('country_id', $request->get('country'))
+                                ->where('state_id', $request->get('state'))
+                                ->where('city_id', $request->get('city'));
+                            });
+        }
+
+        /************************************************
+        **                                              **
+        **                                              **
+        **     When nothing has been provided           **
+        **    ie. only search string provided           **
+        **   get all the companies and use the search   **
+        **    string to find the match                  **
+        *************************************************/
+
+
+        if(!$request->has('country') && !$request->has('state') && !$request->has('city')){
+            $company = Company::get();
+            // Todo will use location of user to customize his or her search with time
+            return $company;
+        }
+
+        //this splites the search strings in to tokens so we can search each one agains the database
+        if($request->has('search')){
+            $search = array();
+         $tokens = preg_split("/[\r\n\t ]+/", $request->get('search') );
+         foreach ($tokens as $key => $value) {
+             if(strlen($value) <= 4 )
+                continue;
+          // $search=$value;
+            array_push($search, $value);
+         }
+         
+         return $search; 
+            $company = $company->whereHas('category', function($q) use ($request, $search){
+                    $q->where('name', 'like', '%'.$search[0].'%');
+                        // ->whereOr('name', 'like', $request->get('search'));
+
+            });
+        }
+        
 		/*Todo 
 		* if country is not specified in the search string use the default browser location
 		*/
-		return view('search.result')->with('companies',$company);
-		return $company;
+       
+        return view('search.result')->with('companies',$company->get());
+		return $company->get();
 	}
 // old search details page
 	public function searchDetailsOld(Request $request, $company)
@@ -34,6 +112,7 @@ class SearchController extends Controller
 											->with('address', $address)
 											->with('CompanyHasCategories', $CompanyHasCategory);
 	}
+
 
 	public function layouts(Request $request)
     {
