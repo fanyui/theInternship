@@ -11,6 +11,8 @@
     <title>{{ config('app.name', 'TheInternship') }}</title>
 
     <!-- Styles -->
+
+    @yield('styles')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- bootstrap select -->
     <link rel="stylesheet" href="{{ URL::to('bootstrap-select/css/bootstrap-select.css') }}">
@@ -78,8 +80,10 @@
         @yield('content')
     </div>
 
-     @include('modals')
+   
 
+     @include('modals')
+ @yield('footer')
     <!-- Scripts -->
     <script src="{{ URL::to('jquery/jquery2.1.4.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>

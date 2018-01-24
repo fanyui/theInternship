@@ -7,6 +7,11 @@ use App\Company;
 use App\City;
 use App\Country;
 use App\Address;
+
+use App\Contact;
+use App\Mail\EmailNotification;
+use Illuminate\Support\Facades\Mail;
+
 use Mapper;
 
 class SearchController extends Controller
@@ -22,8 +27,8 @@ class SearchController extends Controller
 		return view('search.result')->with('companies',$company);
 		return $company;
 	}
-
-	public function searchDetails(Request $request, $company)
+// old search details page
+	public function searchDetailsOld(Request $request, $company)
 	{
 
 		//Mapper::marker(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 'eventDragEnd' => 'console.log(event.latLng.lat()); console.log(event.latLng.lng());']);
@@ -31,9 +36,7 @@ class SearchController extends Controller
 		$company = Company::find($company);
 		$address = $company->address()->first();
 		$CompanyHasCategory = $company->CompanyHasCategory()->get();
-		Mapper::map($company->latitude, $company->longitude,['draggable' => true, 'eventDragEnd' => 'console.log(event.latLng.lat()); console.log(event.latLng.lng());']);
-
-		return view('search.searchdetails')->with('company', $company)
+		return view('search.searchdetailsold')->with('company', $company)
 											->with('address', $address)
 											->with('CompanyHasCategories', $CompanyHasCategory);
 	}
@@ -42,5 +45,56 @@ class SearchController extends Controller
     {
         $countries = Country::get();
         return view('welcome')->with('countries', $countries);
+    }
+
+    public function searchDetails(Request $request, $company)
+    {
+    	 $countries = Country::get();
+    	 $company = Company::find($company);
+		$address = $company->address()->first();
+		$CompanyHasCategory = $company->CompanyHasCategory()->get();
+
+		return view('search-details')->with('countries', $countries)
+								->with('company', $company)
+								->with('address', $address)
+								->with('CompanyHasCategories', $CompanyHasCategory);
+    }
+
+
+    public function contactUs(Request $request)
+    {
+    	return view('contact-us');
+    }
+
+     public function contactUsForm(Request $request) {
+        $this->validate($request, [
+            'author' => 'required|string',
+            'email' => 'required|email',
+            'subject' => 'string',
+            'comment' => 'string',
+        ]);
+
+        $contact = new Contact;
+        $contact->author = $request->author;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->comment = $request->comment;
+
+        $contact->save();
+        $request->session()->flash('alert-success', 'Message Successfully Sent!');
+
+        /*Send Email*/ 
+        $mailContent = [   'title' => 'Contact Us', 
+                            'body' =>   '<strong>' . $contact->author . '</strong><br />' .
+                                        $contact->email . '<br />' .
+                                        $contact->subject . '<br />' .
+                                        $contact->comment . '<br />',
+                            'url' => "",
+                            'email' => $contact->email,
+                        ];
+
+        Mail::to(config('settings.system.email'))->send(new EmailNotification($mailContent));
+
+        return view('contact-us');
     }
 }

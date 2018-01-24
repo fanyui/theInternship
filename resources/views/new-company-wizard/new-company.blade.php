@@ -15,10 +15,10 @@
        
         </div>
         <div class="form-designed panel-body" id="estate-listing">
-            <form class="form-horizontal" id="add-listing-form" role="form" method="POST" action="#"  enctype="multipart/form-data">   
+            <form class="form-horizontal" id="add-listing-form" role="form" method="POST" action="{{route('company-new') }}"  enctype="multipart/form-data">   
                 {!! csrf_field() !!}
-                <div class="ex-tab col5" id="company-tabs">
-                    <ul class="nav nav-pills">
+                <div class="ex-tab col5 " id="company-tabs">
+                    <ul class="nav nav-pills col-md-offset-3 col-sm-offset-2">
                         <li class="active" id="pill-add-company">
                             <a href="#add-company" data-toggle="tab"><i class="fa fa-building text text-default"></i><span> Company Details</span></a>
                         </li>
@@ -30,6 +30,7 @@
                             <a href="#add-logo" data-toggle="tab"><i class="fa fa-image text text-warning"></i><span>Company Logo</span></a>
                         </li>
                     </ul>
+                    <br> <hr>
                     <div class="tab-content clearfix">
                         <div class="tab-pane active" id="add-company">
                             @include('new-company-wizard.w-company')
@@ -156,6 +157,7 @@
                 processData: false,
 
                 beforeSend: function() {
+                    console.log('about to send')
                     btn.html('<i class="fa fa-spinner"> </i> Creating listing. Patient please!!!').prop('disabled', true); 
                     ajax_processing.removeClass('hidden');
                     $('html, body').animate({
@@ -163,6 +165,7 @@
                     }, 1000);
                 },
                 success:    function(data){
+                     console.log('send successful')
                     btn.html('<i class="fa fa-plane"> </i> Submit ').prop('disabled', false)
 
                     if (data.success == true) {

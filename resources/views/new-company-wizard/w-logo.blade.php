@@ -2,7 +2,7 @@
 			<div>
 				<div><label> Company Logo</label><i class="del-listing-image pull-right fa fa-times text text-danger"></i></div>
 				<img class="img-responsive" src="{{ asset('img/upload.png') }}">
-				<input type="file" class="form-control add-new-listing-image" name="images[]">
+				<input type="file" class="form-control add-new-listing-image" name="Logo">
 			</div>
 		</div>
 

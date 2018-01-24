@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
-	<div class="row">
-
+<section id="aa-properties" style="background: #f6f6f6;">
+  <div class="container">
+    <div class="row">
 		<div class="col col-xs-12 col-sm-6 col-md-8 col-lg-8">
 		<div class="blog-header">
 	        <h1 class="blog-title">{{ $company->name }}</h1>
@@ -44,5 +44,5 @@
 		
 	</div>
 </div>	
-
+</section>
 @endsection
