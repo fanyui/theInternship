@@ -163,10 +163,9 @@
         </div>
 
 
+    </div>
 
-
-
-</div>
+<script src="{{ URL::to('jquery/jquery2.1.4.min.js') }}"></script>
     <!-- footer -->
 <footer id="aa-footer">
     <div class="container">
@@ -225,8 +224,11 @@
   <!-- / Footer -->
 
     <!-- scripts -->
+<<<<<<< HEAD
 
 <script src="{{ URL::to('jquery/jquery2.1.4.min.js') }}"></script>
+=======
+>>>>>>> 7d009598f0b0343527d073e9963bbf4ae7e3d13e
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 
