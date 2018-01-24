@@ -83,17 +83,6 @@
     </head>
     <body> <div class="container-fluid">
         <div class="flex-center full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div id="title" class="title m-b-md">
                     TheInternship
@@ -165,7 +154,6 @@
 
     </div>
 
-<script src="{{ URL::to('jquery/jquery2.1.4.min.js') }}"></script>
     <!-- footer -->
 <footer id="aa-footer">
     <div class="container">
@@ -224,11 +212,9 @@
   <!-- / Footer -->
 
     <!-- scripts -->
-<<<<<<< HEAD
+
 
 <script src="{{ URL::to('jquery/jquery2.1.4.min.js') }}"></script>
-=======
->>>>>>> 7d009598f0b0343527d073e9963bbf4ae7e3d13e
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 

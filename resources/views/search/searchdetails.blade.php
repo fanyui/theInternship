@@ -37,8 +37,8 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		
-		{{-- @foreach($CompanyHasCategories as $CompanyHasCategory)
-							{{ $CompanyHasCategory->category->name }}
+		{{-- @foreach($categories as $category)
+							{{ $category->name }}
 						@endforeach --}}
 		</div>
 		

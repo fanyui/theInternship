@@ -36,7 +36,7 @@
                 	<div class="form-group {{ $errors->has('country') || $errors->has('city') || $errors->has('state') ? ' has-error' : '' }}">
                 		{!! csrf_field() !!}
 
-	                    <div  class="col-md-2 col-sm-4">
+	                    <div  class="col-md-4 col-sm-4">
 	                    
 	                    <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
 	                      
@@ -79,7 +79,7 @@
                                 </span>
                             @endif
                         </div>
-	                    <div class="col-xs-12 col-sm-6 col-md-3">
+	                    <div class="col-xs-12 col-sm-6 col-md-2">
 	                    	<span class="links"> &nbsp</span>
 	                    <button type="submit" class="btn btn-lg btn-primary">search</button>
 	                    </div>

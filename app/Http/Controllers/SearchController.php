@@ -18,8 +18,7 @@ class SearchController extends Controller
 {
 	public function search(Request $request)
 	{
-		$company = null;
-        
+		$company =null;
 
         // 
 
@@ -29,11 +28,12 @@ class SearchController extends Controller
         **    then country must have been selected      **
         **                                              **
         *************************************************/
-        if($request->has('state') && !$request->has('city')){
+        if($request->get('country')!=null && $request->get('state')!=null && $request->get('city')==null){     
     		$company = Company::whereHas('address',function($q) use ($request){
                             $q->where('country_id', $request->get('country'))
                                 ->where('state_id', $request->get('state'));
                             });
+            
         }
 
 
@@ -43,10 +43,11 @@ class SearchController extends Controller
         **    when country  only is provided            **
         **                                              **
         *************************************************/
-        if($request->has('country') && !$request->has('state') && !$request->has('city')){
+        if($request->get('country')!=null && $request->get('state')==null && $request->get('city') ==null){
             $company = Company::whereHas('address',function($q) use ($request){
                         $q->where('country_id', $request->get('country'));
                         });
+            
         }
 
         /************************************************
@@ -55,7 +56,7 @@ class SearchController extends Controller
         **     When all the three are present           **
         **                                              **
         *************************************************/
-        if($request->has('country') && $request->has('state') && $request->has('city')){
+        if($request->get('country')!=null && $request->get('state') !=null && $request->get('city') !=null){
             $company = Company::whereHas('address',function($q) use ($request){
                             $q->where('country_id', $request->get('country'))
                                 ->where('state_id', $request->get('state'))
@@ -73,29 +74,37 @@ class SearchController extends Controller
         *************************************************/
 
 
-        if(!$request->has('country') && !$request->has('state') && !$request->has('city')){
-            $company = Company::get();
+        if($request->get('country')==null && $request->get('state')==null && $request->get('city')==null){
+            $company = Company::whereHas('address',function($q) use ($request){
+                            $q->where('country_id', 1);
+            });
+            // $company = Company::all();using default country as cameroon with id 1 to provide consistency in the way querying is done
             // Todo will use location of user to customize his or her search with time
-            return $company;
         }
 
-        //this splites the search strings in to tokens so we can search each one agains the database
-        if($request->has('search')){
-            $search = array();
-         $tokens = preg_split("/[\r\n\t ]+/", $request->get('search') );
-         foreach ($tokens as $key => $value) {
-             if(strlen($value) <= 4 )
-                continue;
-          // $search=$value;
-            array_push($search, $value);
-         }
-         
-         return $search; 
-            $company = $company->whereHas('category', function($q) use ($request, $search){
-                    $q->where('name', 'like', '%'.$search[0].'%');
-                        // ->whereOr('name', 'like', $request->get('search'));
 
+        //this splites the search strings in to tokens so we can search each one agains the database
+        if($request->get('search')!=null){
+                $search = array();
+             $tokens = preg_split("/[\r\n\t ]+/", $request->get('search') );
+             foreach ($tokens as $key => $value) {
+                if(strlen($value) <= 4 )
+                    continue;
+            //filter all string of length greater or equal four and use agains database search to avoid searching words like is to the if should in case the user provided them
+                array_push($search, $value);
+             }
+             
+            $company = $company->whereHas('category', function($q) use ($request, $search){
+                for ($i=0; $i < count($search); $i++)
+                    $q->orWhere('name', 'like', '%'.$search[$i].'%')
+                ;
             });
+
+            return $company->get();
+        }
+            //if no search string is provided just return the companies accumulated so far
+        if($request->get('search')== null){
+            $company =$company;
         }
         
 		/*Todo 
@@ -131,12 +140,12 @@ class SearchController extends Controller
     	 $countries = Country::get();
     	 $company = Company::find($company);
 		$address = $company->address()->first();
-		$CompanyHasCategory = $company->CompanyHasCategory()->get();
+		$category = $company->category()->get();
 
 		return view('search-details')->with('countries', $countries)
 								->with('company', $company)
 								->with('address', $address)
-								->with('CompanyHasCategories', $CompanyHasCategory);
+								->with('categories', $category);
     }
 
 
