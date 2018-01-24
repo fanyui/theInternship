@@ -7,9 +7,12 @@ use App\Company;
 use App\City;
 use App\Country;
 use App\Address;
+
 use App\Contact;
 use App\Mail\EmailNotification;
 use Illuminate\Support\Facades\Mail;
+
+use Mapper;
 
 class SearchController extends Controller
 {
@@ -27,6 +30,9 @@ class SearchController extends Controller
 // old search details page
 	public function searchDetailsOld(Request $request, $company)
 	{
+
+		//Mapper::marker(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 'eventDragEnd' => 'console.log(event.latLng.lat()); console.log(event.latLng.lng());']);
+
 		$company = Company::find($company);
 		$address = $company->address()->first();
 		$CompanyHasCategory = $company->CompanyHasCategory()->get();
