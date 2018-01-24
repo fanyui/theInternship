@@ -15,6 +15,17 @@ use App\ApplicationType;
 
 class CompanyController extends Controller
 {
+
+    //protected all functions of this controller with the auth middleware
+    // id all users acessing methods of this class should be loggedin
+    public function __constructor(Request $request)
+    {
+        $this->middleware('auth');
+    }
+
+
+
+
     public function index(){
     	$countries = Country::get();
         $categories = Category::get();

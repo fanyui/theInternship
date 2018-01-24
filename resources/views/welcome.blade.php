@@ -7,16 +7,18 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
-            <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-             <!-- bootstrap select -->
-    <link rel="stylesheet" href="{{ URL::to('bootstrap-select/css/bootstrap-select.css') }}">
-    <link href="{{ URL::to('fa/css/font-awesome.min.css') }}" rel='stylesheet' type='text/css'>
-
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+                 <!-- bootstrap select -->
+        <link rel="stylesheet" href="{{ URL::to('bootstrap-select/css/bootstrap-select.css') }}">
+        <link href="{{ URL::to('fa/css/font-awesome.min.css') }}" rel='stylesheet' type='text/css'>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet">    
+
         <style>
             html, body {
                 background-color: #fff;
@@ -165,7 +167,66 @@
 
 
     </div>
+
 <script src="{{ URL::to('jquery/jquery2.1.4.min.js') }}"></script>
+    <!-- footer -->
+<footer id="aa-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="aa-footer-area">
+          <div class="row">
+            <div class="col-md-2 col-sm-6 col-xs-12">
+              <div class="aa-footer-left">
+               <p>&copy; <a rel="nofollow" href="http://theinternship.com/">TheInternship.com</a></p>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-6 col-xs-12">
+              <div class="aa-footer-middle">
+                <a target="_blank" href="https://www.facebook.com/theinternship"><i class="fa fa-facebook"></i></a>
+                <a target="_blank" href="https://twitter.com/theinternship"><i class="fa fa-twitter"></i></a>
+                <!-- <a target="_blank" href=""><i class="fa fa-google-plus"></i></a> -->
+                <!-- <a href=""><i class="fa fa-youtube"></i></a> -->
+                <a target="_blank" href="https://www.linkedin.com/company/theinternship"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-12 col-xs-12">
+              <div class="aa-footer-right">
+                <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> Home</a>
+                <a href=""><small><i class="fa fa-building-o"></i></small> Companies</a>
+                <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> Contact us</a>
+             
+                
+              
+              </div>
+
+             
+            </div>            
+          </div>
+          <div style="clear: both;"></div>
+            <hr />
+            <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+            <div class="aa-footer-right">
+                <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> Home</a>
+                <a href=""><small><i class="fa fa-building-o"></i></small> Companies</a>
+                <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> Contact us</a>
+             
+                <a href="{{ URL::to('') }}">Support</a>
+                <a href="{{ URL::to('') }}">License</a>
+                <a href="{{ URL::to('') }}">FAQ</a>
+                <a href="{{ URL::to('') }}">Privacy & Term</a>
+            </div>
+            </div>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / Footer -->
+
+    <!-- scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 
