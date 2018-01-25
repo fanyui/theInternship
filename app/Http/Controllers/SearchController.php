@@ -183,7 +183,7 @@ class SearchController extends Controller
                             'email' => $contact->email,
                         ];
 
-        Mail::to(config('settings.system.email'))->send(new EmailNotification($mailContent));
+        Mail::to(config('settings.system.email'))->send(new EmailNotification($mailContent, null));
 
         return view('contact-us');
     }

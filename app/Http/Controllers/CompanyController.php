@@ -15,6 +15,8 @@ use App\Company;
 use App\Media;
 use App\Category;
 use App\ApplicationType;
+use App\Mail\EmailNotification;
+use Illuminate\Support\Facades\Mail;
 
 use Mapper;
 class CompanyController extends Controller
@@ -141,5 +143,16 @@ Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 
     	$media->application_letter =Custom::uploadCV($request->application_letter, 'uploads/company/letters', null); 
 
     	$media->save();
+
+        /*Send Email*/ 
+        $company = Company::find($request->company_id)->first();
+        $mailContent = [   'title' => 'Contact Us', 
+                            'body' =>   '<strong>' . Auth::user()->name . '</strong><br />' .
+                                         'Wants to submit an application to the company<br />' .
+                                        $company->name . '<br />' .
+                                     ' With the following files as attachments<br />',
+                            'url' => "route('search-details',['slug'=>$company->id])",
+                        ];
+        Mail::to(config('settings.system.email'))->send(new EmailNotification($mailContent, asset('upload/company/letters'.$media->cv)));
     }
 }
