@@ -16,6 +16,7 @@ use App\Media;
 use App\Category;
 use App\ApplicationType;
 
+use Mapper;
 class CompanyController extends Controller
 {
 
@@ -30,6 +31,7 @@ class CompanyController extends Controller
 
 
     public function index(){
+Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 'eventDragEnd' => 'document.getElementById("latitude").value = event.latLng.lat(); document.getElementById("longitude").value =event.latLng.lng();']);
     	$countries = Country::get();
         $categories = Category::get();
     	 return view('new-company-wizard.new-company')->with('countries', $countries)

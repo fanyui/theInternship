@@ -127,16 +127,32 @@
 	
 			<center><h3 class="center"> Company Description </h3></center>
 			<p>{{ $company->description }}</p>
+      @if($company->images)
+        <div class="aa-properties-details">
+            <div class="aa-properties-details-img">
+              @foreach($company->images as $image)
+               <img 
+               src="{{ asset($image->thumbnail_img) }}"  
+               img-mobile="{{ asset($image->img_path) }}" 
+               img-tablet="{{ asset($image->img_path) }}" 
+               img-full="{{ asset($image->img_path) }}" 
+              class="progressive-image">
+              @endforeach
+             </div>
+             <div class="aa-properties-details-thumbnail">
+               @foreach($company->images as $image)
+               <img  src="{{ asset($image->thumbnail_img) }}" >
+              @endforeach
+             </div>
+        </div>
+      @endif
       </div>
       <div class="col-md-4">
         <div class="aa-properties-single-sidebar">
         	<h2>Map</h2>
-        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        	<div style="width: 350px; height: 400px;">
+        {!! Mapper::render() !!}
+      </div>
         </div>
 
         <div class="aa-properties-social">
