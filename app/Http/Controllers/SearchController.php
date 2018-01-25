@@ -18,6 +18,7 @@ class SearchController extends Controller
 {
 	public function search(Request $request)
 	{
+        $countries = Country::get();
 		$company =null;
 
         // 
@@ -100,7 +101,6 @@ class SearchController extends Controller
                 ;
             });
 
-            return $company->get();
         }
             //if no search string is provided just return the companies accumulated so far
         if($request->get('search')== null){
@@ -111,7 +111,8 @@ class SearchController extends Controller
 		* if country is not specified in the search string use the default browser location
 		*/
        
-        return view('search.result')->with('companies',$company->get());
+        return view('search.result')->with('countries', $countries)
+                                    ->with('companies',$company->get());
 		return $company->get();
 	}
 // old search details page
