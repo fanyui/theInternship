@@ -9,28 +9,28 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col col-xs-12 col-sm-6 col-md-3 col-lg-3">
-		something i don't know how to say about something i don't know how to say aboutsomething i don't know how to say aboutsomething i don't know how to say aboutsomething i don't know how to say aboutsomething i don't know how to say about
+		<h2 class="lead"><strong class="text-danger">{{count($companies)}}</strong> results were found </h2>
+		<div class="col col-md-8">
+			
+	
+			@if(count($companies)>0)
+				@foreach($companies as $company)
+					<a href="{{ route('search-details',['slug' => $company->id ]) }} " target="_blank"> <h3> {{ $company->name }}</h3></a>
+
+					<p>{{ substr($company->description, 0, 300) }} 
+						<a href="{{ route('search-details',['slug' => $company->id ]) }} "> view more</a>
+					</p>
+				@endforeach
+			@else
+				<h2>No results were found</h2>
+			@endif
+		</div>
+		<div class="col col-md-4">
+			
 		</div>
 
-		<div class="col col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-			@foreach($companies as $company)
-				<a href="{{ route('search-details',['slug' => $company->id ]) }} " target="_blank"> <h3> {{ $company->name }}</h3></a>
-
-				<p>{{ substr($company->description, 0, 300) }} 
-					<a href="{{ route('search-details',['slug' => $company->id ]) }} "> view more</a>
-				</p>
-			@endforeach
-		</div>
 		
-		<div class="col col-xs-12 col-sm-6 col-md-3 col-lg-3">
-		 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</div>
+		
 		
 	</div>
 

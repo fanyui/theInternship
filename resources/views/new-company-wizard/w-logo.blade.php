@@ -1,10 +1,13 @@
+<div>
 <div class="col-sm-3 col-xs-12 col-p-5 listing-images-item">
 			<div>
 				<div><label> Company Logo</label><i class="del-listing-image pull-right fa fa-times text text-danger"></i></div>
 				<img class="img-responsive" src="{{ asset('img/upload.png') }}">
-				<input type="file" class="form-control add-new-listing-image" name="Logo">
+				<input type="file" class="form-control add-new-listing-image" name="logo">
 			</div>
-		</div>
+</div>
+</div>
+<br><br><br><br><hr>
 
 <div class="row listing-images">
 	<div class="them inline-block">
@@ -33,7 +36,7 @@
 </div>
 <div class="form-group">
     <div class="col-md-3 pull-left">
-        <a  class="btn btn-warning col-md-12 nav-btn-next-prev" data-move="prev" data-current="image"  data-next-prev="aminity">
+        <a href="#add-address" data-toggle="tab" class="btn btn-warning col-md-12 nav-btn-next-prev" data-move="prev" data-current="image" >
             <i class="fa fa-btn fa-backward"></i>Previous
         </a>
     </div>

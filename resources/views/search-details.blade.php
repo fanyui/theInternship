@@ -36,7 +36,7 @@
                 	<div class="form-group {{ $errors->has('country') || $errors->has('city') || $errors->has('state') ? ' has-error' : '' }}">
                 		{!! csrf_field() !!}
 
-	                    <div  class="col-md-2 col-sm-4">
+	                    <div  class="col-md-4 col-sm-4">
 	                    
 	                    <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
 	                      
@@ -79,7 +79,7 @@
                                 </span>
                             @endif
                         </div>
-	                    <div class="col-xs-12 col-sm-6 col-md-3">
+	                    <div class="col-xs-12 col-sm-6 col-md-2">
 	                    	<span class="links"> &nbsp</span>
 	                    <button type="submit" class="btn btn-lg btn-primary">search</button>
 	                    </div>
@@ -111,7 +111,7 @@
                         <div class="panel-title"><h4><i class="fa fa-list"></i> {{$company->name}} Info</h4></div>
                     </div>
                     <div class="panel-body an-slideinleft">
-						<span> <img src="{{ $company->logo }}" alt="{{ $company->logo }}" class="img-circle"></span>
+						<span> <img src="{{asset('uploads/company/logo/'. $company->logo) }}" alt="{{ $company->logo }}" class="img-circle"></span><br>
 				        <span>Email: {{ $address->email }} </span><br>
 				        <span>Tel: {{ $address->telephone }} </span><br>
 				        <span>Country: {{ $address->country->name }} </span><br>
@@ -120,6 +120,7 @@
 				        <span>Number of Interns: {{ $company->intern_number }} </span><br>
 						<span><a href="http://{{ $company->website}}" target="blank">{{ $company->website }} </a> </span>
 				        <hr>
+                <span class="pull-right"> <a href="{{route('media',['slug' => $company->id])}} " class="btn btn-primary"> Apply Now!!!</a></span>
 				    </div>
 			</div>
 		      	
@@ -147,14 +148,14 @@
                <ul>
                  <li class="share facebook">
                   <a onclick="window.open(
-                    'https://www.facebook.com/sharer/sharer.php?u=', 'newwindow', 'width=600,height=400'); return false;" href="https://www.facebook.com/sharer/sharer.php?u="><i class="fa fa-facebook"></i></a>
+                    'https://www.facebook.com/sharer/sharer.php?u={{urlencode(route('search-details',['slug' => $company->id]) )}} ', 'newwindow', 'width=600,height=400'); return false;" href="https://www.facebook.com/sharer/sharer.php?u={{urlencode(route('search-details',['slug' => $company->id]) )}}"><i class="fa fa-facebook"></i></a>
                  </li>
-                 <li class="share twitter"><a  onclick="window.open('https://twitter.com/intent/tweet?url=&text=Heyy, checkout+this+new+listing&hashtags=digitalrenter,&via=digitalrenter', 'newwindow', 'width=600,height=400'); return false;"  href="https://twitter.com/intent/tweet?url=&text=Heyy, checkout+this+new+listing&hashtags=digitalrenter,&via=digitalrenter" target="_blank"><i class="fa fa-twitter"></i></a>
+                 <li class="share twitter"><a  onclick="window.open('https://twitter.com/intent/tweet?url={{urlencode(route('search-details',['slug' => $company->id]) )}} &text=Heyy, checkout+this+new+internship+offer&hashtags=theinternship,&via=theinternship', 'newwindow', 'width=600,height=400'); return false;"  href="https://twitter.com/intent/tweet?url=&text=Heyy, checkout+this+new+internship+offer&hashtags=theinternship,&via=theinternship" target="_blank"><i class="fa fa-twitter"></i></a>
                  </li>
                  <li class="share google-plus">
-                  <a onclick="window.open('https://plus.google.com/share?url=', 'newwindow', 'width=600,height=400'); return false;" href="https://plus.google.com/share?url=" target="_blank"><i class="fa fa-google-plus"></i></a>
+                  <a onclick="window.open('https://plus.google.com/share?url={{urlencode(route('search-details',['slug' => $company->id]) )}}', 'newwindow', 'width=600,height=400'); return false;" href="https://plus.google.com/share?url={{urlencode(route('search-details',['slug' => $company->id]) )}}" target="_blank"><i class="fa fa-google-plus"></i></a>
                  </li>
-                 <li class="share whatsapp"><a href="whatsapp://send?text=Heyyy, checkout this house for  on digital renter "><i class="fa fa-whatsapp"></i> </a></li>
+                 <li class="share whatsapp"><a href="whatsapp://send?text=Heyyy, checkout this internship offer on theinternship "><i class="fa fa-whatsapp"></i> </a></li>
                </ul>
               </div>
            </div>

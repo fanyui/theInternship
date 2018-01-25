@@ -38,6 +38,7 @@ Route::post('/company/new', 'CompanyController@new')->name('company-new');
 Route::get('/media/{company_id}/new', 'CompanyController@media')->name('media');
 Route::post('/media/store', 'CompanyController@storeMedia')->name('store-media');
 
+
 Route::get('/front', 'SearchController@front')->name('front');
 
 Route::get('/contact-us', 'SearchController@contactUs')->name('contact-us');

@@ -1,8 +1,10 @@
 
 <div class="row">
 	
-	<div class="col col-md-4"> Map
-
+	<div class="col col-md-4">
+			<!-- <div style="width: 500px; height: 500px;">  render the mapper minimum size is 500 by 500px-->
+				{!! Mapper::render() !!}
+			<!-- </div> -->
 		<!-- beginning of longitude and latitude code -->
 		<div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }}">
             <label for="longitude" class="col-md-4 control-label">Longitude</label>
@@ -88,7 +90,7 @@
 	    {{-- category  display --}}
 	    <div class="row">
 	    	<div class="col-md-2 col-sm-4 col-md-offset-2 col-sm-offset-2 {{ $errors->has('category') ? ' has-error' : '' }}">
-		        <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="Select " tabindex="10"  name="category" id="country" value="{{ old('category') }}" required="">
+		        <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="Select " tabindex="10"  name="category" id="category" value="{{ old('category') }}" required="">
 		            @if ($categories->count())
 		                @foreach($categories as $category)
 		                    <option value="{{$category->id}}" {{ old('category') == $category->id ? 'selected' : null }} > {{ $category->name}} </option>
@@ -135,11 +137,21 @@
 	            </div>
 	        </div>
 	    </div>
-
-
-	        <div class="col-md-6 col-sm-offset-3 pull-right">
-	        	<button  class="btn btn-lg btn-primary col-md-12" >Next</button>
-	        </div>
+	    
+	    
     </div>
 
+</div>
+<div class="row">
+	<div class="col-md-6  pull-left">
+	        <a href="#add-company" data-toggle="tab" class="btn btn-warning col-md-6 nav-btn-next-prev" data-move="prev" data-current="info"  data-next-prev="property">
+	            <i class="fa fa-btn fa-backward"></i>Previous
+	        </a>
+	    </div>
+
+	        <div class="col-md-6 pull-right">
+	        	<a class="btn btn-info col-md-6   nav-btn-next-prev" href="#add-logo" data-toggle="tab" data-move="next" data-current="address"  data-next-prev="logo">
+            	<i class="fa fa-btn fa-forward"></i>Next
+        		</a>
+	        </div>
 </div>

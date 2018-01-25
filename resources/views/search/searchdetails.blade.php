@@ -25,7 +25,9 @@
 		
 		<div class="col col-xs-6 col-md-4 col-lg-4">
 			<h2>Map</h2>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<div style="width: 500px; height: 500px;">
+				{!! Mapper::render() !!}
+			</div>
 			<h1> Related companies </h1>
 				<!-- <p> {{ $address }} </p> -->
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -35,8 +37,8 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		
-		{{-- @foreach($CompanyHasCategories as $CompanyHasCategory)
-							{{ $CompanyHasCategory->category->name }}
+		{{-- @foreach($categories as $category)
+							{{ $category->name }}
 						@endforeach --}}
 		</div>
 		

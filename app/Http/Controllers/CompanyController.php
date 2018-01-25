@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use Carbon\Carbon;
+
+use App\Image;
 use App\Country;
 use App\Custom\Custom;
 use App\Address;
@@ -38,6 +41,27 @@ class CompanyController extends Controller
     public function new(Request $request)
     {
 
+        $this->validate($request, [
+            'telephone' => 'required|integer',
+            'email' => 'required|email',
+            'country' => 'required|integer',
+            'state' => 'required|integer',
+            'city' => 'required|integer',
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'website' => 'url',
+            'duration' => 'integer',
+            'application_period' => 'string',
+            'intern_number' => 'integer',
+            'longitude' => 'numeric',
+            'latitude' => 'numeric',
+            'internship_reward' => 'string',
+            'category' => 'integer',
+            'images.*'       => 'image',
+
+        ]);
+
+
         $company = new Company();
         // $address = new Address();
         // $address->email = $request->email;
@@ -60,26 +84,34 @@ class CompanyController extends Controller
         $company->latitude = $request->latitude;
         // $company->address_id = $address->id; 
         $company->category_id = $request->category;
-        $company->internship_reward = $request->internship_reward;
+        $company->internship_reward = $request->intenship_reward;
         //upload the logo and extract the name
         if(isset($request->logo) ){
             $company->logo =  Custom::fileUpload($request->logo, 'uploads/company/logo', null, null);
-        }
-        if(isset($request->images[0])){
-            $company->image = Custom::fileUpload($request->images, 'uploads/company', null, config('settings.img_resize'));
         }
 
         $company->save();
 
 
-		$address = Address::create([
-		            'telephone'     => $request->telephone,
-		            'email'    => $request->email,
+        $address = Address::create([
+                    'telephone'     => $request->telephone,
+                    'email'    => $request->email,
                     'country_id' => $request->country,
-		            'state_id' => $request->state,
-		            'city_id' => $request->city,
+                    'state_id' => $request->state,
+                    'city_id' => $request->city,
                     'company_id' => $company->id,
-		        ]);
+                ]);
+
+        if(isset($request->images[0])){
+        /*5. Upload images and add them to company images*/
+            $imageData = array(); 
+            foreach ($request->images as $imageObj) {
+                $filename = Custom::fileUpload($imageObj, 'uploads/company/images', null, config('settings.img_resize'));
+                $imageData[] = array('company_id' => $company->id, 'name' => $filename, 'created_at' => Carbon::now());
+            }
+            $listingImages = Image::insert($imageData);
+        }
+
     }
 
     //renders the form to create an application to a company after login

@@ -490,7 +490,7 @@ img {
 }
 
 /*==================
-  PROPERTY PAGE
+  DETAILS PAGE
 ====================*/
 
 #aa-property-header {
@@ -507,7 +507,7 @@ img {
 }
 #aa-property-header::before {
   background-color: rgba(0, 0, 0, 0.4);
-  bottom: 0;
+  bottom: 5px;
   content: "";
   left: 0;
   position: absolute;
@@ -517,7 +517,7 @@ img {
 #aa-property-header .aa-property-header-inner {
   display: inline;
   float: left;
-  padding: 100px 0 10px;
+  padding: 100px 5 5px;
   /*padding: 100px 0 50px;*/
   text-align: center;
   width: 100%;
@@ -553,7 +553,7 @@ img {
   display: inline;
   float: left;
   width: 100%;
-  padding: 30px 0 100px;
+  padding: 30px 2 100px;
 }
 #aa-properties #listing-operation{
   padding: 15px;
@@ -1428,37 +1428,7 @@ input, .panel, .panel .panel-heading, .input-group-addon{
 
 
 
-#make-a-request-div .panel-heading{
-  padding: 2px 15px; 
-  color: rgba(24, 17, 33, 0.81);
-  height: 45px; 
-  background: #b4a9c7; 
-  border-color: rgb(180, 169, 199);
-}
-#make-a-request-div .panel-heading .panel-title{
-  line-height: 40px; 
-}
-
-@media (max-width: 991px) {
-  .make-a-house-request .aa-advance-search-area .aa-single-text{
-    margin-bottom: 10px;
-  }
   /*.make-a-house-request{ margin-top: 0px; }*/
-}
-@media (min-width: 481px) {
-  .make-a-house-request{ margin-top: 50px; }
-}
-
-.make-a-house-request .container{ width: auto;  }
-.make-a-house-request .aa-advance-search-area{ border-radius: 0px; }
-.make-a-house-request h4{
-  margin-bottom: 28px;
-}
-.make-a-house-request h4 p:nth-child(2){
-  color: #6c7272; line-height: 1.5; 
-}
-.make-a-house-request{
-  margin-bottom: 20px;
 }
 
 
