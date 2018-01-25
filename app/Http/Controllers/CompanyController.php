@@ -154,5 +154,9 @@ Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 
                             'url' => "route('search-details',['slug'=>$company->id])",
                         ];
         Mail::to(config('settings.system.email'))->send(new EmailNotification($mailContent, asset('upload/company/letters'.$media->cv)));
+
+         $request->session()->flash('alert-success', 'Documents Successfully Sent!');
+
+         return back();
     }
 }
