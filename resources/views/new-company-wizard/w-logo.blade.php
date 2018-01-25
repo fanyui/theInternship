@@ -36,7 +36,7 @@
 </div>
 <div class="form-group">
     <div class="col-md-3 pull-left">
-        <a  class="btn btn-warning col-md-12 nav-btn-next-prev" data-move="prev" data-current="image"  data-next-prev="aminity">
+        <a href="#add-address" data-toggle="tab" class="btn btn-warning col-md-12 nav-btn-next-prev" data-move="prev" data-current="image" >
             <i class="fa fa-btn fa-backward"></i>Previous
         </a>
     </div>

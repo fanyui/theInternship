@@ -137,11 +137,21 @@
 	            </div>
 	        </div>
 	    </div>
-
-
-	        <div class="col-md-6 col-sm-offset-3 pull-right">
-	        	<button  class="btn btn-lg btn-primary col-md-12" >Next</button>
-	        </div>
+	    
+	    
     </div>
 
+</div>
+<div class="row">
+	<div class="col-md-6  pull-left">
+	        <a href="#add-company" data-toggle="tab" class="btn btn-warning col-md-6 nav-btn-next-prev" data-move="prev" data-current="info"  data-next-prev="property">
+	            <i class="fa fa-btn fa-backward"></i>Previous
+	        </a>
+	    </div>
+
+	        <div class="col-md-6 pull-right">
+	        	<a class="btn btn-info col-md-6   nav-btn-next-prev" href="#add-logo" data-toggle="tab" data-move="next" data-current="address"  data-next-prev="logo">
+            	<i class="fa fa-btn fa-forward"></i>Next
+        		</a>
+	        </div>
 </div>

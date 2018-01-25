@@ -103,14 +103,10 @@
 
 <div class="form-group">
     <div class="col-md-3 pull-left">
-       {{--  
-        <a  class="btn btn-warning col-md-12 nav-btn-next-prev" data-move="prev" data-current="info"  data-next-prev="property">
-            <i class="fa fa-btn fa-backward"></i>Previous
-        </a> --}}
         
     </div>
     <div class="col-md-3 col-sm-offset-6 pull-right">
-        <a class="btn btn-info col-md-12  nav-btn-next-prev" data-move="next" data-current="company"  data-next-prev="address">
+        <a class="btn btn-info col-md-12   nav-btn-next-prev" href="#add-address" data-toggle="tab" data-move="next" data-current="company"  data-next-prev="address">
             <i class="fa fa-btn fa-forward"></i>Next
         </a>
     </div>

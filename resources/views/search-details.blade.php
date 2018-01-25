@@ -111,7 +111,7 @@
                         <div class="panel-title"><h4><i class="fa fa-list"></i> {{$company->name}} Info</h4></div>
                     </div>
                     <div class="panel-body an-slideinleft">
-						<span> <img src="{{ $company->logo }}" alt="{{ $company->logo }}" class="img-circle"></span><br>
+						<span> <img src="{{asset('uploads/company/logo/'. $company->logo) }}" alt="{{ $company->logo }}" class="img-circle"></span><br>
 				        <span>Email: {{ $address->email }} </span><br>
 				        <span>Tel: {{ $address->telephone }} </span><br>
 				        <span>Country: {{ $address->country->name }} </span><br>
