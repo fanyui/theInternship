@@ -138,11 +138,11 @@ class SearchController extends Controller
 
     public function searchDetails(Request $request, $company)
     {
-        Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 'eventDragEnd' => 'console.log(event.latLng.lat()); console.log(event.latLng.lng());']);
-    	 $countries = Country::get();
-    	 $company = Company::find($company);
-		$address = $company->address()->first();
-		$category = $company->category()->get();
+         $countries = Country::get();
+         $company = Company::find($company);
+        $address = $company->address()->first();
+        $category = $company->category()->get();
+        Mapper::map($company->latitude, $company->longitude, ['draggable' => true, 'eventDragEnd' => 'console.log(event.latLng.lat()); console.log(event.latLng.lng());']);
 
 		return view('search-details')->with('countries', $countries)
 								->with('company', $company)

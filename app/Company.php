@@ -15,7 +15,7 @@ class Company extends Model
 	// }
 	public function media()
 	{
-		return $this->hasMany(\App\Media::class);
+		return $this->hasMany(\App\Media::class,'company_id');
 	}
 	public function category()
 	{
@@ -23,6 +23,6 @@ class Company extends Model
 	}
 	public function images()
 	{
-		return $this->hasMany(\App\Image::class);
+		return $this->hasMany(\App\Image::class,'company_id');
 	}
 }
