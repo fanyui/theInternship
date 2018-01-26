@@ -44,8 +44,21 @@
                             <label for="application_period" class="col-md-4 control-label">Application Period</label>
 
                             <div class="col-md-6">
-                                <input id="application_period" type="text" class="form-control" name="application_period" required>
-
+                                <select  class=" form-control selectpicker" data-live-search="true" title="application period " tabindex="10"  name="application_period" id="application_period" value="{{ old('application_period') }}" required>
+                                
+                                        <option value="January" > January </option>
+                                        <option value="February" > February </option>
+                                        <option value="March" > March </option>
+                                        <option value="April" > April </option>
+                                        <option value="May" > May </option>
+                                        <option value="June" > June </option>
+                                        <option value="July" > July </option>
+                                        <option value="August" > August </option>
+                                        <option value="September" > September </option>
+                                        <option value="October" > October </option>
+                                        <option value="November" > November </option>
+                                        <option value="December" > December </option>
+                            </select>
                                 @if ($errors->has('application_period'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('application_period') }}</strong>
@@ -55,7 +68,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('intern_number') ? ' has-error' : '' }}">
-                            <label for="intern_number" class="col-md-4 control-label">Number Of Inters</label>
+                            <label for="intern_number" class="col-md-4 control-label">Number Of Interns</label>
 
                             <div class="col-md-6">
                                 <input id="intern_number" type="text" class="form-control" name="intern_number" required>

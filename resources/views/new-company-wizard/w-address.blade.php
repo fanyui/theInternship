@@ -10,7 +10,7 @@
             <label for="longitude" class="col-md-4 control-label">Longitude</label>
 
             <div class="col-md-6">
-                <input id="longitude" type="number" class="form-control" name="longitude" value="{{ old('longitude') }}" >
+                <input id="longitude" type="text" class="form-control" name="longitude" value="{{ old('longitude') }}" >
 
                 @if ($errors->has('longitude'))
                     <span class="help-block">
@@ -24,7 +24,7 @@
             <label for="latitude" class="col-md-4 control-label">Latitude</label>
 
             <div class="col-md-6">
-                <input id="latitude" type="number" class="form-control" name="latitude" value="{{ old('latitude') }}" >
+                <input id="latitude" type="text" class="form-control" name="latitude" value="{{ old('latitude') }}" >
 
                 @if ($errors->has('latitude'))
                     <span class="help-block">

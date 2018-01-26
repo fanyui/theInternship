@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
+	protected $fillable = [
+        'name', 'description', 'duration', 'website', 'application_period', 'intern_number', 'longitude', 'latitude', 'category_id', 'internship_reward', 'logo',
+    ];
+
 	public function address(){
 		return $this->hasOne(\App\Address::class);
 	}   

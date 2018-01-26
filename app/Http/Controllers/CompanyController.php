@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Auth;
 use Carbon\Carbon;
+use DB;
 
 use App\Image;
 use App\Country;
@@ -62,49 +63,62 @@ Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 
             'internship_reward' => 'string',
             'category' => 'integer',
             'images.*'       => 'image',
+            'logo'      => 'image',
 
         ]);
 
 
-        $company = new Company();
-        // $address = new Address();
-        // $address->email = $request->email;
-        // $address->telephone = $request->telephone;
-        // $address->country = $request->country;
-        // $address->state = $request->state;
-        // $address->city =$request->city;
+        // $company = new Company();
+         $logo = null;
 
 
 
         
 
-        $company->name = $request->name;
-        $company->description = $request->description;
-        $company->duration = $request->duration;
-        $company->website = $request->website;
-        $company->application_period = $request->application_period;
-        $company->intern_number = $request->intern_number;
-        $company->longitude = $request->longitude;
-        $company->latitude = $request->latitude;
-        // $company->address_id = $address->id; 
-        $company->category_id = $request->category;
-        $company->internship_reward = $request->intenship_reward;
-        //upload the logo and extract the name
+        // $company->name = $request->name;
+        // $company->description = $request->description;
+        // $company->duration = $request->duration;
+        // $company->website = $request->website;
+        // $company->application_period = $request->application_period;
+        // $company->intern_number = $request->intern_number;
+        // $company->longitude = $request->longitude;
+        // $company->latitude = $request->latitude;
+        // // $company->address_id = $address->id; 
+        // $company->category_id = $request->category;
+        // $company->internship_reward = $request->intenship_reward;
+        // //upload the logo and extract the name
         if(isset($request->logo) ){
-            $company->logo =  Custom::fileUpload($request->logo, 'uploads/company/logo', null, null);
+            $logo =  Custom::fileUpload($request->logo, 'uploads/company/logo', null, null);
         }
 
-        $company->save();
-
-
+        // $company->save();
+$data = DB::transaction(function () use ($request, $logo){
+        $company = Company::create([
+            'name' => $request->name,
+            'description'=> $request->description,
+            'duration'  => $request->duration,
+            'website'   => $request->website,
+            'application_period' => $request->application_period,
+            'intern_number' => $request->intern_number,
+            'longitude'     => $request->longitude,
+            'latitude'      => $request->latitude,
+            'category_id'   =>$request->category,
+            'internship_reward' => $request->intenship_reward,
+            'logo'  => $logo,
+        ]);
+        return $company->id;
+    });
+        // $company_id = Company::orderBy('id', 'dsc')->first();
         $address = Address::create([
                     'telephone'     => $request->telephone,
                     'email'    => $request->email,
                     'country_id' => $request->country,
                     'state_id' => $request->state,
                     'city_id' => $request->city,
-                    'company_id' => $company->id,
+                    'company_id' => $data,
                 ]);
+
+
 
         if(isset($request->images[0])){
         /*5. Upload images and add them to company images*/
@@ -115,6 +129,7 @@ Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 
             }
             $listingImages = Image::insert($imageData);
         }
+
 
     }
 
