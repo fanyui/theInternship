@@ -128,6 +128,7 @@
 			<center><h3 class="center"> Company Description </h3></center>
 			<p>{{ $company->description }}</p>
       @if($company->images)
+      <h2>A Feel of what is looks like at <i>{{$company->name}}</i></h2>
         
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
