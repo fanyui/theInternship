@@ -128,23 +128,49 @@
 			<center><h3 class="center"> Company Description </h3></center>
 			<p>{{ $company->description }}</p>
       @if($company->images)
-        <div class="aa-properties-details">
-            <div class="aa-properties-details-img">
-              @foreach($company->images as $image)
-               <img 
-               src="{{ asset($image->thumbnail_img) }}"  
-               img-mobile="{{ asset($image->img_path) }}" 
-               img-tablet="{{ asset($image->img_path) }}" 
-               img-full="{{ asset($image->img_path) }}" 
-              class="progressive-image">
-              @endforeach
-             </div>
-             <div class="aa-properties-details-thumbnail">
-               @foreach($company->images as $image)
-               <img  src="{{ asset($image->thumbnail_img) }}" >
-              @endforeach
-             </div>
+        
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="{{asset('uploads/company/logo/'. $company->logo) }}" alt="logo">
+              <div class="carousel-caption">
+                {{$company->name }}
+              </div>
+            </div>
+            @foreach($company->images as $image)
+            <div class="item">
+              <img 
+                       src="{{ asset($image->thumbnail_img) }}"  
+                       img-mobile="{{ asset($image->img_path) }}" 
+                       img-tablet="{{ asset($image->img_path) }}" 
+                       img-full="{{ asset($image->img_path) }}" 
+                      class="progressive-image">
+              <div class="carousel-caption">
+               {{$company->name }}
+              </div>
+            </div>
+            @endforeach
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+            
       @endif
       </div>
       <div class="col-md-4">
