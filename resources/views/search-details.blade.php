@@ -105,19 +105,20 @@
     <div class="row">
     	
       {{-- Listing head info (operation, slider, location, headline, price) --}}
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-12">
       		<div class="panel panel-info sm">
                     <div class="panel-heading">
                         <div class="panel-title"><h4><i class="fa fa-list"></i> {{$company->name}} Info</h4></div>
                     </div>
                     <div class="panel-body an-slideinleft">
 						<span class="pull-right"> <img src="{{asset('uploads/company/logo/'. $company->logo) }}" alt="{{ $company->logo }}" class="img-circle" width="100" height="100"></span><br>
-				        <span>Email: {{ $address->email }} </span><br>
-				        <span>Tel: {{ $address->telephone }} </span><br>
-				        <span>Country: {{ $address->country->name }} </span><br>
-				        <span>Internship Duration {{ $company->duration }} </span><br>
-				        <span>Application period {{ $company->application_period }} </span><br>
-				        <span>Number of Interns: {{ $company->intern_number }} </span><br>
+				        <span>Email: <b>{{ $address->email }}</b> </span><br>
+				        <span>Tel: <b>{{ $address->telephone }}</b> </span><br>
+				        <span>Country: <b>{{ $address->country->name }}</b> </span><br>
+				        <span>Internship Duration: <b>{{ $company->duration }} (months)</b> </span><br>
+				        <span>Application Start period: <b>{{ $company->application_period }}</b> </span><br>
+                <span>Application End period: <b>{{ $company->application_end_period }}</b> </span><br>
+				        <span>Number of Interns: <b>{{ $company->intern_number }}</b> </span><br>
 						<span><a href="http://{{ $company->website}}" target="blank">{{ $company->website }} </a> </span>
 				        <hr>
                 <span class="pull-right"> <a href="{{route('media',['slug' => $company->id])}} " class="btn btn-primary"> Apply Now!!!</a></span>
@@ -174,7 +175,7 @@
             
       @endif
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-6">
         <div class="aa-properties-single-sidebar">
         	<h2>Map</h2>
         	<div style="width: 350px; height: 400px;">

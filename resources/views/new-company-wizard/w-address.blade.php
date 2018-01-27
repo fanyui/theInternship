@@ -1,3 +1,4 @@
+<div>
 
 <div class="row">
 	
@@ -154,4 +155,6 @@
             	<i class="fa fa-btn fa-forward"></i>Next
         		</a>
 	        </div>
+</div>
+
 </div>
