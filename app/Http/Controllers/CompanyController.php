@@ -143,6 +143,8 @@ $data = DB::transaction(function () use ($request, $logo){
             $listingImages = Image::insert($imageData);
         }
 
+        $request->session()->flash('alert-success', 'Company Successfully created see details below');
+        return redirect(route('search-details',['slug' => $data]));
 
     }
 
