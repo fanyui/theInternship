@@ -120,7 +120,7 @@ img {
 
 #aa-header {
   border-bottom: 1px solid rgba(59, 41, 90, 0.45);
-  background: rgba(18, 6, 39, 0.61);
+  background: rgba(89, 103, 33, 0.61);
   /*background: rgba(59, 41, 90, 0.45);*/
   left: 0;
   position: absolute;
@@ -144,7 +144,7 @@ img {
   color: #fff;
 }
 #aa-header .aa-header-area .aa-header-left .aa-telephone-no {
-  color: #fff;
+  color: #ddd;
   float: left;
   font-size: 15px;
 }
@@ -506,7 +506,7 @@ img {
   width: 100%;
 }
 #aa-property-header::before {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(45, 98, 86, 0.4);
   bottom: 5px;
   content: "";
   left: 0;

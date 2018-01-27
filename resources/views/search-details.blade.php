@@ -4,7 +4,7 @@
 	<section id="aa-property-header" style="background-image: url('front/img/property-header-bg.jpg');">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 col-sm-6">
         <div class="aa-property-header-inner">
           <h2>Company Details</h2>
           <ol class="breadcrumb">
@@ -179,8 +179,8 @@
         <div class="aa-properties-single-sidebar">
         	<h2>Map</h2>
         	<div style="width: 350px; height: 400px;">
-        {!! Mapper::render() !!}
-      </div>
+            {!! Mapper::render() !!}
+          </div>
         </div>
 
         <div class="aa-properties-social">
