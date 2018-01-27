@@ -57,19 +57,20 @@ Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 
             'website' => 'url',
             'duration' => 'integer',
             'application_period' => 'string',
+            'application_end_period' => 'string', 
             'intern_number' => 'integer',
             'longitude' => 'numeric',
             'latitude' => 'numeric',
             'internship_reward' => 'string',
-            'category' => 'integer',
+            'category' => 'required|integer',
             'images.*'       => 'image',
-            'logo'      => 'image',
+            'logo'      => 'image|required',
 
         ]);
 
 
         // $company = new Company();
-         $logo = null;
+         $logo = asset('logo.jpg');//set the default logo to theinternship logo but ovewrite if given
 
 
 
@@ -80,6 +81,7 @@ Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 
         // $company->duration = $request->duration;
         // $company->website = $request->website;
         // $company->application_period = $request->application_period;
+        // $company->application_end_period = $request->application_end_period;
         // $company->intern_number = $request->intern_number;
         // $company->longitude = $request->longitude;
         // $company->latitude = $request->latitude;
@@ -99,6 +101,7 @@ $data = DB::transaction(function () use ($request, $logo){
             'duration'  => $request->duration,
             'website'   => $request->website,
             'application_period' => $request->application_period,
+            'application_end_period' => $request->application_end_period,
             'intern_number' => $request->intern_number,
             'longitude'     => $request->longitude,
             'latitude'      => $request->latitude,
@@ -109,14 +112,24 @@ $data = DB::transaction(function () use ($request, $logo){
         return $company->id;
     });
         // $company_id = Company::orderBy('id', 'dsc')->first();
-        $address = Address::create([
-                    'telephone'     => $request->telephone,
-                    'email'    => $request->email,
-                    'country_id' => $request->country,
-                    'state_id' => $request->state,
-                    'city_id' => $request->city,
-                    'company_id' => $data,
-                ]);
+        $address = new Address();
+        $address->telephone = $request->telephone;
+        $address->email     = $request->email;
+        $address->country_id = $request->country;
+        $address->state_id = $request->state;
+        $address->city_id = $request->city;
+        $address->company_id = $data;
+
+        $address->save();
+
+        // $address = Address::create([
+        //             'telephone'     => $request->telephone,
+        //             'email'    => $request->email,
+        //             'country_id' => $request->country,
+        //             'state_id' => $request->state,
+        //             'city_id' => $request->city,
+        //             'company_id' => $data,
+        //         ]);
 
 
 
@@ -125,7 +138,7 @@ $data = DB::transaction(function () use ($request, $logo){
             $imageData = array(); 
             foreach ($request->images as $imageObj) {
                 $filename = Custom::fileUpload($imageObj, 'uploads/company/images', null, config('settings.img_resize'));
-                $imageData[] = array('company_id' => $company->id, 'name' => $filename, 'created_at' => Carbon::now());
+                $imageData[] = array('company_id' => $data, 'name' => $filename, 'created_at' => Carbon::now());
             }
             $listingImages = Image::insert($imageData);
         }
