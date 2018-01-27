@@ -30,73 +30,33 @@
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
-                <br>
-                <section id="aa-advance-search">
-  <div class="container" id="home-page-search">
-    <div class="aa-advance-search-area">
-      <div class="form">
-       <div class="aa-advance-search-top">
-         <form method="get" action="/search">
-                <div class="row">
-                    <div class="form-group {{ $errors->has('country') || $errors->has('city') || $errors->has('state') ? ' has-error' : '' }}">
-                        {!! csrf_field() !!}
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Left Side Of Navbar -->
+                <!-- <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/home') }}">Home</a></li>
+                </ul>
+ -->
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @if (Auth::guest())
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
 
-                        <div  class="col-md-4 col-sm-4">
-                        
-                        <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
-                          
-                        </div>
-                        
-                        <div class="col-md-2 col-sm-4 {{ $errors->has('country') ? ' has-error' : '' }}">
-                                         <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="country " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
-                            @if ($countries->count())
-                                @foreach($countries as $country)
-                                             <option value="{{$country->id}}" {{ old('country') == $country->id ? 'selected' : null }} > {{ $country->name}} </option>
-                                @endforeach
-                            @endif
-                        </select>
-                        
-                        @if ($errors->has('country'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('country') }}</strong>
-                            </span>
-                        @endif
-                    </div> 
-
-                    <div class="col-md-2 col-sm-4 {{ $errors->has('state') ? ' has-error' : '' }}">
-                        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select State" id="state"  name="state">
-                        </select>
-                       
-                        @if ($errors->has('state'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('state') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                        <div class="col-md-1 col-sm-4 col-md-offset-0 col-sm-offset-2 {{ $errors->has('city') ? ' has-error' : '' }}">
-                            <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select City" id="city"  name="city">
-                            </select>
-                            
-                            @if ($errors->has('city'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('city') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-1">
-                        <button type="submit" class="btn btn-lg btn-primary">search</button>
-                        </div>
-                    </div> 
-                </div>
-            </form>
-       </div>
-
-   
-      </div>
-    </div>
-  </div>
-</section>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
+            </div>
+              
+                
             </div>
         </nav>
 
