@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>{{ config('app.name', 'TheInternship') }}</title>
+    <title>{{ config('app.name', 'Internship Space') }}</title>
 
     <!-- Styles -->
 
@@ -27,7 +27,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Internship Space') }}
                     </a>
                 </div>
                 <br>
