@@ -171,20 +171,20 @@ class SearchController extends Controller
         $contact->comment = $request->comment;
 
         $contact->save();
-        $request->session()->flash('alert-success', 'Message Successfully Sent!');
 
         /*Send Email*/ 
         $mailContent = [   'title' => 'Contact Us', 
-                            'body' =>   '<strong>' . $contact->author . '</strong><br />' .
-                                        $contact->email . '<br />' .
-                                        $contact->subject . '<br />' .
-                                        $contact->comment . '<br />',
-                            'url' => "",
+                            'body' =>   $contact->author. $contact->comment ,
+                                        
+                            'subject' => $contact->subject,
+                                        
+                            'url' => "internshipspace.com",
                             'email' => $contact->email,
                         ];
 
         Mail::to(config('settings.system.email'))->send(new EmailNotification($mailContent, null));
 
+        $request->session()->flash('alert-success', 'Message Successfully Sent!');
         return view('contact-us');
     }
 }
