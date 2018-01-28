@@ -190,6 +190,8 @@ return [
         // Intevention image manipulator
         Intervention\Image\ImageServiceProvider::class,
 
+        // search engine uptimization
+         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
     ],
 
@@ -248,7 +250,14 @@ return [
         'Mapper'    => Cornford\Googlmapper\Facades\MapperFacade::class,
 
         //Image intevention
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+
+         // SEO tools
+        'SEOMeta'   => Artesaos\SEOTools\Facades\SEOMeta::class,
+        'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
+        'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
+        // or
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
 
     ],
 
