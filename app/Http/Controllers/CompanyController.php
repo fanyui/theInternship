@@ -25,7 +25,7 @@ class CompanyController extends Controller
 
     //protected all functions of this controller with the auth middleware
     // id all users acessing methods of this class should be loggedin
-    public function __constructor(Request $request)
+    public function __construct(Request $request)
     {
         $this->middleware('auth');
     }
