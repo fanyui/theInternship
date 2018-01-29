@@ -190,8 +190,8 @@ return [
         // Intevention image manipulator
         Intervention\Image\ImageServiceProvider::class,
 
-        // search engine uptimization
-         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        //search engine uptimization
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
     ],
 

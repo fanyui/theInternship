@@ -1,12 +1,20 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-        <title>Laravel</title>
+      ga('create', 'UA-101288005-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+            <!-- generate the head meta tags  -->
+    {!! SEOMeta::generate() !!}
+    <!-- generate the opengraph tags -->
+    {!! OpenGraph::generate() !!}
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
                  <!-- bootstrap select -->
         <link rel="stylesheet" href="{{ URL::to('bootstrap-select/css/bootstrap-select.css') }}">
@@ -99,7 +107,7 @@
                 	<div class="form-group {{ $errors->has('country') || $errors->has('city') || $errors->has('state') ? ' has-error' : '' }}">
                 		{!! csrf_field() !!}
 
-	                    <div  class="col-md-2 col-sm-4">
+	                    <div  class="col-md-4 col-sm-4">
 	                    
 	                    <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
 	                       <span > search keyword </span>
@@ -144,8 +152,8 @@
                                 </span>
                             @endif
                         </div>
-	                    <div class="col-xs-12 col-sm-6 col-md-3">
-	                    	<span class="links"> &nbsp</span>
+	                    <div class="col-xs-12 col-sm-6 col-md-2">
+	                   
 	                    <button type="submit" class="btn btn-lg btn-primary">search</button>
 	                    </div>
                 	</div> 
