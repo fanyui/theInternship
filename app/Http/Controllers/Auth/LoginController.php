@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
@@ -28,15 +29,20 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
+        if (str_contains(url()->previous(), '/search/details/*')) {
+            $this->request = $request; 
+            session(['url.intended' => url()->previous()]);
+            $this->redirectTo = session()->get('url.intended');
+        }
         $this->middleware('guest')->except('logout');
     }
 

@@ -38,17 +38,17 @@
        <div class="aa-advance-search-top">
          <form method="get" action="/search">
                 <div class="row">
-                    <div class="form-group {{ $errors->has('country') || $errors->has('city') || $errors->has('state') ? ' has-error' : '' }}">
+                    <div id="search" class="form-group {{ $errors->has('country') || $errors->has('city') || $errors->has('state') ? ' has-error' : '' }}">
                         {!! csrf_field() !!}
 
-                        <div  class="col-md-4 col-sm-4">
+                        <div  class="col-md-5 col-sm-12">
                         
                         <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
                           
                         </div>
                         
-                        <div class="col-md-2 col-sm-4 {{ $errors->has('country') ? ' has-error' : '' }}">
-                                         <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="country " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
+                        <div class="col-md-2 col-sm-6 {{ $errors->has('country') ? ' has-error' : '' }}">
+                                         <select   class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="country " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
                             @if ($countries->count())
                                 @foreach($countries as $country)
                                              <option value="{{$country->id}}" {{ old('country') == $country->id ? 'selected' : null }} > {{ $country->name}} </option>
@@ -63,8 +63,8 @@
                         @endif
                     </div> 
 
-                    <div class="col-md-2 col-sm-4 {{ $errors->has('state') ? ' has-error' : '' }}">
-                        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select State" id="state"  name="state">
+                    <div class="col-md-1 col-sm-6 {{ $errors->has('state') ? ' has-error' : '' }}">
+                        <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="Select State" id="state"  name="state">
                         </select>
                        
                         @if ($errors->has('state'))
@@ -74,8 +74,8 @@
                         @endif
                     </div>
 
-                        <div class="col-md-1 col-sm-4 col-md-offset-0 col-sm-offset-2 {{ $errors->has('city') ? ' has-error' : '' }}">
-                            <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select City" id="city"  name="city">
+                        <div class="col-md-1 col-sm-6 col-md-offset-0 col-sm-offset-0 {{ $errors->has('city') ? ' has-error' : '' }}">
+                            <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="Select City" id="city"  name="city">
                             </select>
                             
                             @if ($errors->has('city'))
@@ -84,8 +84,8 @@
                                 </span>
                             @endif
                         </div>
-                        <div class="col-xs-12 col-sm-4 col-md-1">
-                        <button type="submit" class="btn btn-lg btn-primary">search</button>
+                        <div class="col-xs-12 col-sm-6 col-md-1">
+                        <button type="submit" class="btn btn-md btn-primary">search</button>
                         </div>
                     </div> 
                 </div>

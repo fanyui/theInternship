@@ -16,6 +16,7 @@ use Mapper;
 use SEOMeta;
 use OpenGraph;
 use Twitter;
+use Lang;
 
 class SearchController extends Controller
 {
