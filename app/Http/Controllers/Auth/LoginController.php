@@ -69,7 +69,14 @@ class LoginController extends Controller
             return redirect('login');
         }
         
-        $user = Socialite::driver($provider)->stateless()->user();
+        if ($provider == "twitter"){
+
+            $user = Socialite::driver($provider)->user();
+        }
+        else{
+
+            $user = Socialite::driver($provider)->stateless()->user();
+        }
 
         
         // // All Providers
