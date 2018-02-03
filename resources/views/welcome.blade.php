@@ -251,7 +251,7 @@
                                                 <div class="description">
                                                     <h3 class="title">Afayi</h3>
                                                     <p class="small-text">Marketing Hacker</p>
-                                                    <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                                    <p class="description">Afayi is a startup company consisting of software engineers, Electrical engineers, and other aspect of problem solving in our society.</p>
                                                 </div>
                                             </div>
                                         </div>
