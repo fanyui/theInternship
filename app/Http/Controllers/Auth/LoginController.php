@@ -64,12 +64,19 @@ class LoginController extends Controller
     public function handleProviderCallback(Request $request, $provider)
     {
 
-        if (!$request->has('error') || $request->has('denied')) {
+        if ($request->has('error') || $request->has('denied')) {
             $request->session()->flash('alert-danger', 'Authentication cancalled. Please, try to login again');
             return redirect('login');
         }
         
-        $user = Socialite::driver($provider)->stateless()->user();
+        if ($provider == "twitter"){
+
+            $user = Socialite::driver($provider)->user();
+        }
+        else{
+
+            $user = Socialite::driver($provider)->stateless()->user();
+        }
 
         
         // // All Providers

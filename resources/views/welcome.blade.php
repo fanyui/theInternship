@@ -73,9 +73,9 @@
 
 
     <div class="section section-header">
-        <div class="parallax filter filter-color-red">
+        <div class="parallax filter filter-color-blue">
             <div class="image"
-                style="background-image: url('assets/img/header-1.jpeg')">
+                style="background-image: url('assets/img/header-11.jpg')">
             </div>
             <div class="container">
                 <div class="content">
@@ -206,7 +206,7 @@
                         <div class="title-area">
                             <h2>Who We Are</h2>
                             <div class="separator separator-danger">✻</div>
-                            <p class="description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best looking clothes.</p>
+                            <p class="description">We are a team of skilled engineers, we believe that we can transform the world around us by working together, as the saying goes "Your network determines your net worth".</p>
                         </div>
                     </div>
 
@@ -222,8 +222,8 @@
                                                 </div>
                                                 <div class="description">
                                                     <h3 class="title">Dirane</h3>
-                                                    <p class="small-text">CEO / Co-Founder</p>
-                                                    <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                                    <p class="small-text">Co-Founder of Afayi</p>
+                                                    <p class="description">I am a Computer Science student from the university of Buea, with a good problem solving skills and software project management</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -236,7 +236,7 @@
                                                 </div>
                                                 <div class="description">
                                                     <h3 class="title">Harisu</h3>
-                                                    <p class="small-text">Software Engineer/Product Designer</p>
+                                                    <p class="small-text">Co-Founder of Afayi</p>
                                                     <p class="description">I am a software Engineer from the university of Buea, with experience in programming and web disign</p>
                                                 </div>
                                             </div>
@@ -251,7 +251,7 @@
                                                 <div class="description">
                                                     <h3 class="title">Afayi</h3>
                                                     <p class="small-text">Marketing Hacker</p>
-                                                    <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                                    <p class="description">Afayi is a startup company consisting of software engineers, Electrical engineers, and other aspect of problem solving in our society.</p>
                                                 </div>
                                             </div>
                                         </div>
