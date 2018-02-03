@@ -48,10 +48,10 @@ return [
     ],
 
     'google' => [
-        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_id'     => "891870177320-088pt0oouf2t4le64om8dcui740o5ifl.apps.googleusercontent.com",
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => 'http://localhost:8000/login/google/callback',
-        // 'redirect'      =>  env('GOOGLE_URL'),
+   
     ],
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),         // Your GitHub Client ID

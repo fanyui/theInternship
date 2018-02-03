@@ -6,13 +6,15 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "approached/laravel-image-optimizer": "^2.3",
+        "artesaos/seotools": "^0.11.1",
+        "cornford/googlmapper": "2.*",
         "fideloper/proxy": "~3.3",
+        "intervention/image": "dev-master",
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
-        "approached/laravel-image-optimizer": "^2.3",
-        "intervention/image": "dev-master",
         "laravel/tinker": "~1.0",
-        "cornford/googlmapper": "2.*"
+        "roumen/sitemap": "^2.7"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

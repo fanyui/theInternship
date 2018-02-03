@@ -1459,3 +1459,16 @@ input, .panel, .panel .panel-heading, .input-group-addon{
     overflow-x: hidden;
     background-color: #ddd;
   }
+}
+  @media (max-width: 360px){
+   .col-sm-12 {
+        width: 100%;
+        float: left;
+
+    }
+   .col-sm-6 {
+        width: 50%;
+        float: left;
+        
+    }
+  }

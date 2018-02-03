@@ -13,6 +13,10 @@ use App\Mail\EmailNotification;
 use Illuminate\Support\Facades\Mail;
 
 use Mapper;
+use SEOMeta;
+use OpenGraph;
+use Twitter;
+use Lang;
 
 class SearchController extends Controller
 {
@@ -133,6 +137,26 @@ class SearchController extends Controller
 	public function layouts(Request $request)
     {
         $countries = Country::get();
+        
+        SEOMeta::setTitle( Lang::get('sentence.seo_title'));
+        SEOMeta::setDescription(Lang::get('sentence.seo_description'));
+        SEOMeta::addKeyword([Lang::get('sentence.seo_keyword')]);
+        SEOMeta::addMeta('viewport', 'width=device-width, initial-scale=1');
+        SEOMeta::addMeta('copyright', Lang::get('sentence.seo_copyright'));
+
+        SEOMeta::addMeta('DC.title', Lang::get('sentence.meta_title'));
+        SEOMeta::addMeta('utf-8', '', 'charset');
+        SEOMeta::addMeta('X-UA-Compatible', 'IE=edge','http-equiv');
+        SEOMeta::addMeta('image', asset('img/banner.jpg'));
+        SEOMeta::addMeta('og:image',asset('img/banner.jpg'));
+
+            //opengraph tags
+        OpenGraph::setDescription(Lang::get('sentence.seo_description'));
+        OpenGraph::setUrl(env('APP_URL'));
+        OpenGraph::setTitle(Lang::get('sentence.opengraph_title'));
+
+
+
         return view('welcome')->with('countries', $countries);
     }
 
