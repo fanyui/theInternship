@@ -160,7 +160,7 @@
                 <div class="title-area">
                     <h2>Our Services</h2>
                     <div class="separator separator-danger">✻</div>
-                    <p class="description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best Solutions for those needs.</p>
+                    <p class="description"> We bring to you an opportunity to get yourself ready for the job market through internship in companies of all domain.</p>
                 </div>
             </div>
             <div class="row">
@@ -169,8 +169,8 @@
                         <div class="icon text-danger">
                             <i class="pe-7s-graph1"></i>
                         </div>
-                        <h3>Sales</h3>
-                        <p class="description">We make our design perfect for you. Our adjustment turn our clothes into your clothes.</p>
+                        <h3>Trust</h3>
+                        <p class="description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best Solutions for those needs.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -187,8 +187,8 @@
                         <div class="icon text-danger">
                             <i class="pe-7s-network"></i>
                         </div>
-                        <h3>Music</h3>
-                        <p class="description">We like to present the youth with proffessional skills so we, so we make sure we spread the word regarding the availability of the internship locations and our services.</p>
+                        <h3>Professional</h3>
+                        <p class="description">We like to present the youth with proffessional skills, so we make sure we spread the word regarding the availability of the internship locations and our services.</p>
                     </div>
                 </div>
             </div>
@@ -236,8 +236,8 @@
                                                 </div>
                                                 <div class="description">
                                                     <h3 class="title">Harisu</h3>
-                                                    <p class="small-text">Product Designer</p>
-                                                    <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                                    <p class="small-text">Software Engineer/Product Designer</p>
+                                                    <p class="description">I am a software Engineer from the university of Buea, with experience in programming and web disign</p>
                                                 </div>
                                             </div>
                                         </div>

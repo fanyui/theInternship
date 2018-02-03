@@ -97,7 +97,7 @@
 
             <div class="content">
                 <div id="title" class="title m-b-md">
-                    TheInternship
+                    InternshipSpace
                 </div>
 
                 	Build your skill with industrial standard by doing internships in 
@@ -179,16 +179,16 @@
           <div class="row">
             <div class="col-md-2 col-sm-6 col-xs-12">
               <div class="aa-footer-left">
-               <p>&copy; <a rel="nofollow" href="http://theinternship.com/">TheInternship.com</a></p>
+               <p>&copy; <a rel="nofollow" href="http://internshipspace.com/">InternshipSpace.com</a></p>
               </div>
             </div>
             <div class="col-md-5 col-sm-6 col-xs-12">
               <div class="aa-footer-middle">
-                <a target="_blank" href="https://www.facebook.com/theinternship"><i class="fa fa-facebook"></i></a>
-                <a target="_blank" href="https://twitter.com/theinternship"><i class="fa fa-twitter"></i></a>
+                <a target="_blank" href="https://www.facebook.com/internshipspace"><i class="fa fa-facebook"></i></a>
+                <a target="_blank" href="https://twitter.com/internshipspace"><i class="fa fa-twitter"></i></a>
                 <!-- <a target="_blank" href=""><i class="fa fa-google-plus"></i></a> -->
                 <!-- <a href=""><i class="fa fa-youtube"></i></a> -->
-                <a target="_blank" href="https://www.linkedin.com/company/theinternship"><i class="fa fa-linkedin"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/company/internshipspace"><i class="fa fa-linkedin"></i></a>
               </div>
             </div>
             <div class="col-md-5 col-sm-12 col-xs-12">
