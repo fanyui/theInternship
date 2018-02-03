@@ -42,9 +42,9 @@ return [
     ],
 
     'facebook' => [
-        'client_id'     => env('FACEBOOK_ID'),
+        'client_id'     => '152195688896762',
         'client_secret' => env('FACEBOOK_SECRET'),
-        'redirect'      => env('FACEBOOK_URL'),
+        'redirect'      => 'http://localhost:8000/login/facebook/callback',
     ],
 
     'google' => [
