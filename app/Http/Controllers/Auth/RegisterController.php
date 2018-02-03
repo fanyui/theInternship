@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+
 
 class RegisterController extends Controller
 {
@@ -27,15 +29,20 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct( Request $request)
     {
+        if (url()->previous()) {
+            $this->request = $request; 
+            session(['url.intended' => url()->previous()]);
+            $this->redirectTo = session()->get('url.intended');
+        }
         $this->middleware('guest');
     }
 

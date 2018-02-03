@@ -36,9 +36,9 @@ return [
     ],
 
     'twitter' => [
-        'client_id'     => env('TWITTER_ID'),
-        'client_secret' => env('TWITTER_SECRET'),
-        'redirect'      => env('TWITTER_URL'),
+        'client_id'     => "tYdL7JJc4k9c0v6bFPVdiL7Xb",
+        'client_secret' => "mJ9XUzufVd6Xee2zJrvbFN7GN5ecCzOYcpG5KP7WMn7fVzMxqA",
+        'redirect'      => "http://localhost:8000/login/twitter/callback",
     ],
 
     'facebook' => [
