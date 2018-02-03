@@ -68,8 +68,15 @@ class LoginController extends Controller
             $request->session()->flash('alert-danger', 'Authentication cancalled. Please, try to login again');
             return redirect('login');
         }
-        
-        $user = Socialite::driver($provider)->user();
+
+        if ($provider == "twitter"){
+
+            $user = Socialite::driver($provider)->user();
+        }
+        else{
+
+            $user = Socialite::driver($provider)->stateless()->user();
+        }
 
         
         // // All Providers
