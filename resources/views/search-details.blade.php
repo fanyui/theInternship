@@ -194,12 +194,12 @@
                   <a onclick="window.open(
                     'https://www.facebook.com/sharer/sharer.php?u={{urlencode(route('search-details',['slug' => $company->id]) )}} ', 'newwindow', 'width=600,height=400'); return false;" href="https://www.facebook.com/sharer/sharer.php?u={{urlencode(route('search-details',['slug' => $company->id]) )}}"><i class="fa fa-facebook"></i></a>
                  </li>
-                 <li class="share twitter"><a  onclick="window.open('https://twitter.com/intent/tweet?url={{urlencode(route('search-details',['slug' => $company->id]) )}} &text=Heyy, checkout+this+new+internship+offer&hashtags=theinternship,&via=theinternship', 'newwindow', 'width=600,height=400'); return false;"  href="https://twitter.com/intent/tweet?url=&text=Heyy, checkout+this+new+internship+offer&hashtags=theinternship,&via=theinternship" target="_blank"><i class="fa fa-twitter"></i></a>
+                 <li class="share twitter"><a  onclick="window.open('https://twitter.com/intent/tweet?url={{urlencode(route('search-details',['slug' => $company->id]) )}} &text=Heyy, checkout+this+new+internship+offer&hashtags=internshipspace,&via=internshipspace', 'newwindow', 'width=600,height=400'); return false;"  href="https://twitter.com/intent/tweet?url=&text=Heyy, checkout+this+new+internship+offer&hashtags=internshipspace,&via=internshipspace" target="_blank"><i class="fa fa-twitter"></i></a>
                  </li>
                  <li class="share google-plus">
                   <a onclick="window.open('https://plus.google.com/share?url={{urlencode(route('search-details',['slug' => $company->id]) )}}', 'newwindow', 'width=600,height=400'); return false;" href="https://plus.google.com/share?url={{urlencode(route('search-details',['slug' => $company->id]) )}}" target="_blank"><i class="fa fa-google-plus"></i></a>
                  </li>
-                 <li class="share whatsapp"><a href="whatsapp://send?text=Heyyy, checkout this internship offer on theinternship "><i class="fa fa-whatsapp"></i> </a></li>
+                 <li class="share whatsapp"><a href="whatsapp://send?text=Heyyy, checkout this internship offer on internshipspace "><i class="fa fa-whatsapp"></i> </a></li>
                </ul>
               </div>
            </div>

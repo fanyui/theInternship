@@ -92,7 +92,7 @@
                     </a>
                   </div>
                   <div class="aa-email hidden-xs">
-                    <span class="fa fa-envelope-o"></span> <a href="mailto:fanyuiharisu@gmail.com">fanyuiharisu [at] gmail [dot] com</a>
+                    <span class="fa fa-envelope-o"></span> <a href="mailto:internshipspace@gmail.com">internshipspace@gmail.com</a>
                   </div>
                 </div>              
               </div>
@@ -102,7 +102,7 @@
                   @if(Auth::guest())
                   <a href="{{ URL::to('login') }}" class="aa-login">Login</a>
                   @else
-                  <a href="" class="aa-login">Backend</a>
+                  <a href="/home" class="aa-login">Home</a>
                   @endif
                 </div>
               </div>
@@ -130,7 +130,7 @@
           <!-- Text based logo -->
             <div class="row" id="request-demo-row">
               <div class="col-sm-6">
-                <a class="navbar-brand aa-logo" href="{{ URL::to('/') }}"> TheInternship</a>
+                <a class="navbar-brand aa-logo" href="{{ URL::to('/') }}"> InternshipSpace</a>
               </div>
             </div>
            <!-- Image based logo -->
@@ -168,22 +168,22 @@
           <div class="row">
             <div class="col-md-2 col-sm-6 col-xs-12">
               <div class="aa-footer-left">
-               <p>&copy; <a rel="nofollow" href="http://theinternship.com/">TheInternship.com</a></p>
+               <p>&copy; <a rel="nofollow" href="http://internshipspace.com/">InternshipSpace.com</a></p>
               </div>
             </div>
             <div class="col-md-5 col-sm-6 col-xs-12">
               <div class="aa-footer-middle">
-                <a target="_blank" href="https://www.facebook.com/theinternship"><i class="fa fa-facebook"></i></a>
-                <a target="_blank" href="https://twitter.com/theinternship"><i class="fa fa-twitter"></i></a>
+                <a target="_blank" href="https://www.facebook.com/internshipspace"><i class="fa fa-facebook"></i></a>
+                <a target="_blank" href="https://twitter.com/internshipspace"><i class="fa fa-twitter"></i></a>
                 <!-- <a target="_blank" href=""><i class="fa fa-google-plus"></i></a> -->
                 <!-- <a href=""><i class="fa fa-youtube"></i></a> -->
-                <a target="_blank" href="https://www.linkedin.com/company/theinternship"><i class="fa fa-linkedin"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/company/internshipspace"><i class="fa fa-linkedin"></i></a>
               </div>
             </div>
             <div class="col-md-5 col-sm-12 col-xs-12">
               <div class="aa-footer-right">
                 <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> Home</a>
-                <a href=""><small><i class="fa fa-building-o"></i></small> Companies</a>
+                <a href="#"><small><i class="fa fa-building-o"></i></small> Companies</a>
                 <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> Contact us</a>
              
                 <a href="{{ URL::to('') }}">Support</a>
