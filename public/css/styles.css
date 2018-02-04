@@ -1459,6 +1459,37 @@ input, .panel, .panel .panel-heading, .input-group-addon{
     overflow-x: hidden;
     background-color: #ddd;
   }
+  .section .title-area {
+      max-width: 760px;
+      margin: 0 auto 0px;
+      display: block;
+      padding: 0px;
+      text-align: center;
+    }
+
+ .section-header h1, .section-header-blog h1, .section-presentation-page h1 {
+    font-weight: 0px;
+    font-size: 0em; 
+  }
+  .section .title-area {
+     margin: 0 0 0px; 
+  }
+  .section-header .content h1 {
+    font-size: 0em;
+    letter-spacing: 0em;
+    line-height: 0;
+}
+}
+@media (max-width: 992px){
+.section-header .content h1 {
+    font-size: 0em;
+    letter-spacing: 0em;
+    line-height: 0;
+}
+.section-header h1, .section-header-blog h1, .section-presentation-page h1 {
+    font-weight: 0;
+    font-size: 0em;
+  }
 }
   @media (max-width: 360px){
    .col-sm-12 {
@@ -1470,5 +1501,18 @@ input, .panel, .panel .panel-heading, .input-group-addon{
         width: 50%;
         float: left;
         
+    }
+    .section .title-area {
+      max-width: 760px;
+      margin: 0 auto 0px;
+      display: block;
+      padding: 0 15px;
+      text-align: center;
+    }
+
+    .section-header .content h1 {
+     font-size: 0em; 
+     letter-spacing: 0em; 
+     line-height: 0; 
     }
   }
