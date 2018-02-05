@@ -66,8 +66,9 @@ $(document).ready(function(){
     $('.google-map').each(function(){
         var lng = $(this).data('lng');
         var lat = $(this).data('lat');
+        var ele = document.getElementById("contactUsMap");
 
-        gaia.initGoogleMaps(this, lat, lng);
+        gaia.initGoogleMaps(elm, lat, lng);
     });
 
 });

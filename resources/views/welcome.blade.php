@@ -494,6 +494,7 @@
 
 <!--  script for google maps   -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<!-- <script type="text/javascript" src="{{ asset('assets/js/rubick_pres.js') }}"></script> -->
 
 <!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
 <script type="text/javascript" src="{{ asset('assets/js/gaia.js') }}"></script>
