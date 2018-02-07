@@ -167,7 +167,7 @@
                 <div class="col-md-4">
                     <div class="info-icon">
                         <div class="icon text-danger">
-                            <i class="pe-7s-graph1"></i>
+                            <i class="pe-7s-attention"></i>
                         </div>
                         <h3>Trust</h3>
                         <p class="description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best Solutions for those needs.</p>
@@ -237,7 +237,7 @@
                                                 <div class="description">
                                                     <h3 class="title">Harisu</h3>
                                                     <p class="small-text">Co-Founder of Afayi</p>
-                                                    <p class="description">I am a software Engineer from the university of Buea, with experience in programming and web disign</p>
+                                                    <p class="description">I am a software Engineering student from the university of Buea, with experience in Algorithms, Software design, programming and web disign</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -352,7 +352,7 @@
                             <a target="_blank" href="/contact-us"  class="btn btn-black btn-contact">
                                 CONTACT US <i class="fa fa-paper-plane"></i>
                             </a>
-                            <h4>Thank you for informing y!</h4>
+                            <h4>Thank you for informing Others about us!</h4>
 
 
                             <div class="col-md-6">
