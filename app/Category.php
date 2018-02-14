@@ -10,8 +10,8 @@ class Category extends Model
 	// {
 	// 	return $this->hasMany(\App\CompanyHasCategory::class);
 	// }
-	public function company()
+	public static function company()
 	{
-		return $this->hasOne(App\Company::class, 'category_id');
+		return $this->hasMany(\App\Company::class, 'category_id');
 	}
 }
