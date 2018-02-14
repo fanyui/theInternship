@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use App\Company;
 use App\City;
@@ -30,9 +31,17 @@ class SearchController extends Controller
         $companyResult = Custom::customSearch($request, $countries);
        
         return view('search.result')->with('countries', $countries)
-                                    ->with('companies',$companyResult->get());
+                                    ->with('companies',$companyResult->paginate(10));
 		return $companyResult->get();
 	}
+
+     public function companies(Request $request)
+    {
+        $countries = Country::get();
+        $count = count(Company::get());
+       $companies = Company::paginate(4);
+       return view('companies')->with('countries', $countries)->with('companies',$companies)->with('count',$count);
+    }
 // old search details page
 	public function searchDetailsOld(Request $request, $company)
 	{

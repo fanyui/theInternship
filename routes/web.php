@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', 'SearchController@search')->name('search');
 Route::get('/search/details/{company}', 'SearchController@searchDetails')->name('search-details');
+Route::get('/companies', 'SearchController@companies')->name('companies');
 
 // formally 
 // Route::get('/search/details/{company}', 'SearchController@front')->name('search-details');

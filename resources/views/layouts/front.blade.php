@@ -144,10 +144,10 @@
              <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="{{ URL::to('') }}">COMPANIES <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">                
-                <li><a href="{{ URL::to('') }}">COMPANIES</a></li>                                         
+                <li><a href="{{ route('companies') }}">COMPANIES</a></li>                                         
               </ul>
              --}}
-            <li><a href=""><small><i class="fa fa-building-o"></i></small> COMPANIES</a></li>                                         
+            <li><a href="{{ route('companies') }}"><small><i class="fa fa-building-o"></i></small> COMPANIES</a></li>                                         
             <li><a href="{{route('contact-us') }}"><small><i class="fa fa-phone"></i></small> CONTACT US</a></li>                                         
           </ul>                            
         </div>

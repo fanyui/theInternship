@@ -42,6 +42,8 @@ Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 
     	 
     }
 
+   
+
     //create a new company 
     public function new(Request $request)
     {

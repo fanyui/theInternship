@@ -33,6 +33,8 @@
 		
 		
 	</div>
-
+		<div class="" align="center">
+            {{$companies->appends(Illuminate\Support\Facades\Input::except('page'))->links()}}
+        </div>
 </div>
 @endsection
