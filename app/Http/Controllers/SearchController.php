@@ -39,7 +39,7 @@ class SearchController extends Controller
     {
         $countries = Country::get();
         $count = count(Company::get());
-       $companies = Company::paginate(4);
+       $companies = Company::paginate(10);
        return view('companies')->with('countries', $countries)->with('companies',$companies)->with('count',$count);
     }
 // old search details page
