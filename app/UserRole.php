@@ -18,12 +18,12 @@ class UserRole extends Model
     /* User role relationships */
     public function user_role()
     {
-        return $this->hasMany(\App\model\UserRole::class, 'user_id');
+        return $this->hasMany(\App\UserRole::class, 'user_id');
     }
 
 
     public function role()
     {
-    	return $this->belongsTo(\App\model\Role::class, 'role_id');
+    	return $this->belongsTo(\App\Role::class, 'role_id');
     }
 }

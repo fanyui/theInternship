@@ -22,18 +22,23 @@ use Illuminate\Support\Facades\Mail;
 use Mapper;
 class CompanyController extends Controller
 {
-
+     public $roles; 
+     
     //protected all functions of this controller with the auth middleware
     // id all users acessing methods of this class should be loggedin
     public function __construct(Request $request)
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        $this->roles = Custom::getUserRoles(Auth::user());
+        view()->share('__roles__', $this->roles);
     }
 
 
-
-
     public function index(){
+            //only admins are allowed to create companies
+          if (!in_array('admin', Custom::getUserRoles(Auth::user()))) {
+            throw new \Illuminate\Auth\Access\AuthorizationException; 
+        }
 Mapper::map(53.381128999999990000, -1.470085000000040000, ['draggable' => true, 'eventDragEnd' => 'document.getElementById("latitude").value = event.latLng.lat(); document.getElementById("longitude").value =event.latLng.lng();']);
     	$countries = Country::get();
         $categories = Category::get();

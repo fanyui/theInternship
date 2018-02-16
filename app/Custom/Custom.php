@@ -4,7 +4,9 @@ namespace App\Custom;
 
 use Auth;
 use Image; 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 use Carbon\Carbon; 
 use App\Company;
@@ -168,5 +170,46 @@ class Custom
         */
 
         return $company;
+    }
+
+     public static function getRolesArray($user)
+    {
+        if(Auth::user() == null){
+            return redirect()->to('/login');
+        }
+        $role_cache_name = 'user-roles-' . $user->id; 
+        $roles = Cache::remember($role_cache_name, 1440, function () use ($user) {
+            $roles = array();
+            $request = new Request;
+            /*Check if this user has a role*/
+            foreach ($user->roles()->get() as $key => $role) {
+                if ($role->code == 'user') {
+                    $roles[] = 'user';
+                }elseif ($role->code == 'admin') {
+                    $roles[] = 'admin';
+                }elseif ($role->code == 'superAdmin') {
+                    $roles[] = 'superAdmin';
+                }
+            }
+
+            return $roles; 
+        });
+
+        return $roles;
+    }
+
+    public static function getUserRoles($user)
+    {
+        if(Auth::user() == null){
+            return redirect()->to('/login');
+        }
+
+        $roles = self::getRolesArray(Auth::user());
+
+        if(sizeof($roles) == 0){
+            throw new RoleNotFoundException("This user does not have a role. Registration was through " . Auth::user()->provider . '.', 0);
+        }
+
+        return $roles;
     }
 }
