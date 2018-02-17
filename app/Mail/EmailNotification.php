@@ -35,7 +35,7 @@ class EmailNotification extends Mailable
         if($this->attarchment == null)
             return $this->view('emails.user-contact');
         else
-            return $this->view('email.user-contact')
+            return $this->view('emails.user-contact')
                         ->attach($this->attarchment,['as'=> 'CV.pdf', 'mime' => 'application/pdf']);
     }
 }

@@ -183,7 +183,7 @@
             <div class="col-md-5 col-sm-12 col-xs-12">
               <div class="aa-footer-right">
                 <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> Home</a>
-                <a href="#"><small><i class="fa fa-building-o"></i></small> Companies</a>
+                <a href="{{route('companies')}}"><small><i class="fa fa-building-o"></i></small> Companies</a>
                 <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> Contact us</a>
              
                 <a href="{{ URL::to('') }}">Support</a>

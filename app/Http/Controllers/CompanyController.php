@@ -28,7 +28,7 @@ class CompanyController extends Controller
     // id all users acessing methods of this class should be loggedin
     public function __construct(Request $request)
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
         $this->roles = Custom::getUserRoles(Auth::user());
         view()->share('__roles__', $this->roles);
     }
@@ -165,9 +165,19 @@ $data = DB::transaction(function () use ($request, $logo){
     //save the media object for the form above to a particular company you are applying for
     public function storeMedia(Request $request)
     {
+
+
+        $this->validate($request,[
+            'application_letter' => 'required',
+            'cv'                =>  'required',
+            'company_id'        =>  'required|integer',
+            // 'multivation_letter'=>  'required',
+            'application_type'  =>  'required',
+        ]);
+
     	$media = new Media();
     	$media->company_id = $request->company_id;
-    	$media->application_type = 1;
+    	$media->application_type = $request->application_type;
     	$media->user_id = Auth::user()->id;
 
     	$media->multivation_letter = $request->multivation_letter;
@@ -184,6 +194,7 @@ $data = DB::transaction(function () use ($request, $logo){
         /*Send Email*/ 
         $company = Company::find($request->company_id)->first();
         $mailContent = [   'title' => 'Contact Us', 
+                            'subject'=>'Application For Internship',
                             'body' =>   '<strong>' . Auth::user()->name . '</strong><br />' .
                                          'Wants to submit an application to the company<br />' .
                                         $company->name . '<br />' .
