@@ -170,12 +170,3 @@ input:checked + .slider:before {
 input.danger, textarea.danger{
   border: 1px solid #ca0f0f;
 }
-.listing-views{
-  padding: 3px 15px; 
-  background: rgba(26, 13, 49, 0.57); 
-  color: #fff; 
-  font-weight: 500;  
-  font-size: 15px; 
-  position: absolute; 
-  z-index: 9999; 
-}

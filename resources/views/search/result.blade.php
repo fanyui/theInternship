@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-search')
 
 @section('styles')
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">    
@@ -33,6 +33,8 @@
 		
 		
 	</div>
-
+		<div class="" align="center">
+            {{$companies->appends(Illuminate\Support\Facades\Input::except('page'))->links()}}
+        </div>
 </div>
 @endsection

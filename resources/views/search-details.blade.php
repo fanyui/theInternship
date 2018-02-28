@@ -4,7 +4,7 @@
 	<section id="aa-property-header" style="background-image: url('front/img/property-header-bg.jpg');">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 col-sm-6">
         <div class="aa-property-header-inner">
           <h2>Company Details</h2>
           <ol class="breadcrumb">
@@ -105,19 +105,20 @@
     <div class="row">
     	
       {{-- Listing head info (operation, slider, location, headline, price) --}}
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-12">
       		<div class="panel panel-info sm">
                     <div class="panel-heading">
                         <div class="panel-title"><h4><i class="fa fa-list"></i> {{$company->name}} Info</h4></div>
                     </div>
                     <div class="panel-body an-slideinleft">
-						<span> <img src="{{asset('uploads/company/logo/'. $company->logo) }}" alt="{{ $company->logo }}" class="img-circle"></span><br>
-				        <span>Email: {{ $address->email }} </span><br>
-				        <span>Tel: {{ $address->telephone }} </span><br>
-				        <span>Country: {{ $address->country->name }} </span><br>
-				        <span>Internship Duration {{ $company->duration }} </span><br>
-				        <span>Application period {{ $company->application_period }} </span><br>
-				        <span>Number of Interns: {{ $company->intern_number }} </span><br>
+						<span class="pull-right"> <img src="{{asset('uploads/company/logo/'. $company->logo) }}" alt="{{ $company->logo }}" class="img-circle" width="100" height="100"></span><br>
+				        <span>Email: <b>{{ $address->email }}</b> </span><br>
+				        <span>Tel: <b>{{ $address->telephone }}</b> </span><br>
+				        <span>Country: <b>{{ $address->country->name }}</b> </span><br>
+				        <span>Internship Duration: <b>{{ $company->duration }} (months)</b> </span><br>
+				        <span>Application Start period: <b>{{ $company->application_period }}</b> </span><br>
+                <span>Application End period: <b>{{ $company->application_end_period }}</b> </span><br>
+				        <span>Number of Interns: <b>{{ $company->intern_number }}</b> </span><br>
 						<span><a href="http://{{ $company->website}}" target="blank">{{ $company->website }} </a> </span>
 				        <hr>
                 <span class="pull-right"> <a href="{{route('media',['slug' => $company->id])}} " class="btn btn-primary"> Apply Now!!!</a></span>
@@ -127,16 +128,59 @@
 	
 			<center><h3 class="center"> Company Description </h3></center>
 			<p>{{ $company->description }}</p>
+      @if($company->images)
+      <h2>A Feel of what is looks like at <i>{{$company->name}}</i></h2>
+        
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="{{asset('uploads/company/logo/'. $company->logo) }}" alt="logo">
+              <div class="carousel-caption">
+                {{$company->name }}
+              </div>
+            </div>
+            @foreach($company->images as $image)
+            <div class="item">
+              <img 
+                       src="{{ asset($image->thumbnail_img) }}"  
+                       img-mobile="{{ asset($image->img_path) }}" 
+                       img-tablet="{{ asset($image->img_path) }}" 
+                       img-full="{{ asset($image->img_path) }}" 
+                      class="progressive-image">
+              <div class="carousel-caption">
+               {{$company->name }}
+              </div>
+            </div>
+            @endforeach
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+            
+      @endif
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-6">
         <div class="aa-properties-single-sidebar">
         	<h2>Map</h2>
-        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        	<div style="width: 350px; height: 400px;">
+            {!! Mapper::render() !!}
+          </div>
         </div>
 
         <div class="aa-properties-social">
@@ -150,12 +194,12 @@
                   <a onclick="window.open(
                     'https://www.facebook.com/sharer/sharer.php?u={{urlencode(route('search-details',['slug' => $company->id]) )}} ', 'newwindow', 'width=600,height=400'); return false;" href="https://www.facebook.com/sharer/sharer.php?u={{urlencode(route('search-details',['slug' => $company->id]) )}}"><i class="fa fa-facebook"></i></a>
                  </li>
-                 <li class="share twitter"><a  onclick="window.open('https://twitter.com/intent/tweet?url={{urlencode(route('search-details',['slug' => $company->id]) )}} &text=Heyy, checkout+this+new+internship+offer&hashtags=theinternship,&via=theinternship', 'newwindow', 'width=600,height=400'); return false;"  href="https://twitter.com/intent/tweet?url=&text=Heyy, checkout+this+new+internship+offer&hashtags=theinternship,&via=theinternship" target="_blank"><i class="fa fa-twitter"></i></a>
+                 <li class="share twitter"><a  onclick="window.open('https://twitter.com/intent/tweet?url={{urlencode(route('search-details',['slug' => $company->id]) )}} &text=Heyy, checkout+this+new+internship+offer&hashtags=internshipspace,&via=internshipspace', 'newwindow', 'width=600,height=400'); return false;"  href="https://twitter.com/intent/tweet?url=&text=Heyy, checkout+this+new+internship+offer&hashtags=internshipspace,&via=internshipspace" target="_blank"><i class="fa fa-twitter"></i></a>
                  </li>
                  <li class="share google-plus">
                   <a onclick="window.open('https://plus.google.com/share?url={{urlencode(route('search-details',['slug' => $company->id]) )}}', 'newwindow', 'width=600,height=400'); return false;" href="https://plus.google.com/share?url={{urlencode(route('search-details',['slug' => $company->id]) )}}" target="_blank"><i class="fa fa-google-plus"></i></a>
                  </li>
-                 <li class="share whatsapp"><a href="whatsapp://send?text=Heyyy, checkout this internship offer on theinternship "><i class="fa fa-whatsapp"></i> </a></li>
+                 <li class="share whatsapp"><a href="whatsapp://send?text=Heyyy, checkout this internship offer on internshipspace "><i class="fa fa-whatsapp"></i> </a></li>
                </ul>
               </div>
            </div>

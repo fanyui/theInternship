@@ -32,4 +32,9 @@ class User extends Authenticatable
         return $this->hasMany(\App\Media::class);
         
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(\App\Role::class, 'user_roles');
+    }
 }

@@ -17,9 +17,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/search', 'ApiSearchController@search');
+//handle search by using key word typed in by user
+Route::get('/company', 'ApiSearchController@search');
+
+//handle search by using built in category field when user clicks featured company
+//eg. IT, medicine, agriculture, etc
+Route::get('/company/category', 'ApiSearchController@featuredSearch');
+
+Route::get('/company/{id}/full', 'ApiSearchController@fullDetails');
+
+//handles the details of a company search
 Route::get('/search/details/{company}', 'ApiSearchController@searchDetails');
 
-//these are responsible for the auto updating of the states when country is selected and cities when state is selected.
-Route::post('/country/states', 'ApiLocationController@ajax_country_states');
-Route::post('/state/cities', 'ApiLocationController@ajax_states_cities');

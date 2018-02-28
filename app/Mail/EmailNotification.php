@@ -13,14 +13,16 @@ class EmailNotification extends Mailable
 
 
     public $mailContent;
+    public $attarchment;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($mailContent)
+    public function __construct($mailContent ,$attarchment)
     {
         $this->mailContent = $mailContent;
+        $this->attarchment = $attarchment;
     }
 
     /**
@@ -30,6 +32,10 @@ class EmailNotification extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.user-contact');
+        if($this->attarchment == null)
+            return $this->view('emails.user-contact');
+        else
+            return $this->view('emails.user-contact')
+                        ->attach($this->attarchment,['as'=> 'CV.pdf', 'mime' => 'application/pdf']);
     }
 }

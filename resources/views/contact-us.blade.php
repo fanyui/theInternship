@@ -41,12 +41,12 @@
               <p>We are a product, powered by tech giant, Afayi. We are located in a room building at ndongo and are happy to receive you every week day from 8am - 4pm. Feel free contact us through any of the means below and we will be happy to help you address any worries. </p>
               <ul class="contact-info-list">
                 <li> <a style="color: white;" href="tel:+237675955931"><i class="fa fa-phone"></i> +237 675 955 931 </a></li>
-                <li> <i class="fa fa-envelope-o"></i> theinternship@gmail.com</li>
+                <li> <i class="fa fa-envelope-o"></i> internshipspace@gmail.com</li>
                 <li> <i class="fa fa-map-marker"></i> Afayi, Ndongo, Buea, Cameroon</li>
                 <li class=""> 
                   <div align="center">
-                    <a cla style="color: white;" href="https://facebook.com/theinternship"><i class="fa fa-facebook"></i></a>
-                    <a style="color: white;" href="https:://twitter.com/theinternship"><i class="fa fa-twitter"></i></a>
+                    <a cla style="color: white;" href="https://facebook.com/internshipspace"><i class="fa fa-facebook"></i></a>
+                    <a style="color: white;" href="https:://twitter.com/internshipspace"><i class="fa fa-twitter"></i></a>
                     {{--
                     <i class="fa fa-instagram"></i>
                     <i class="fa fa-whatsapp"></i>

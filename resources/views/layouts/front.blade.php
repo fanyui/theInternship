@@ -30,40 +30,22 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
     <!-- Favicon -->
-    <!-- <link rel="shortcut icon" href="{{ URL::to('front/img/favicon.ico') }}" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="{{ URL::to('favicon.ico') }}" type="image/x-icon">
 
     <!-- Font awesome -->
     <link href="{{ asset('fa/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
-    <!-- slick slider -->
-    <!-- <link rel="stylesheet" type="text/css" href="{{ URL::to('front/css/slick.css') }}"> -->
-    {{--
-    <!-- price picker slider -->
-    <!-- <link rel="stylesheet" type="text/css" href="{{ URL::to('front/css/nouislider.css') }}"> -->
-    --}}
-    <!-- Fancybox slider -->
-    <!-- <link rel="stylesheet" href="{{ URL::to('front/css/jquery.fancybox.css') }}" type="text/css" media="screen" />  -->
-    <!-- Theme color -->
-    <!-- <link id="switcher" href="{{ URL::to('front/css/theme-color/default-theme.css') }}" rel="stylesheet">      -->
-
+    
     <!-- Main style sheet -->
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">    
     <!-- bootstrap select -->
     <link rel="stylesheet" href="{{asset('bootstrap-select/css/bootstrap-select.css') }}">
-    <!-- Animation library for notifications   -->
-    <!-- <link href="{{ URL::to('css/animate.css') }}" rel="stylesheet"/> -->
-   
+  
     <!-- Google Font -->
    <!--  <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
     
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style type="text/css">
       /*.navbar.navbar-default.main-navbar.navbar-fixed-top #request-demo-row{*/
       .navbar.navbar-default.main-navbar.navbar-fixed-top #navbar{
@@ -93,15 +75,6 @@
 
   </head>
   <body class="aa-price-range">  
-  <!-- Pre Loader -->
-  {{--
-  <div id="aa-preloader-area">
-    <div class="pulse"></div>
-  </div>
-  --}}
-  <!-- SCROLL TOP BUTTON -->
-    <a class="scrollToTop" href="{{ URL::to('') }}"><i class="fa fa-angle-double-up"></i></a>
-  <!-- END SCROLL TOP BUTTON -->
 
   <!-- Start header section -->
   <header id="aa-header">  
@@ -119,7 +92,7 @@
                     </a>
                   </div>
                   <div class="aa-email hidden-xs">
-                    <span class="fa fa-envelope-o"></span> <a href="mailto:fanyuiharisu@gmail.com">fanyuiharisu [at] gmail [dot] com</a>
+                    <span class="fa fa-envelope-o"></span> <a href="mailto:internshipspace@gmail.com">internshipspace@gmail.com</a>
                   </div>
                 </div>              
               </div>
@@ -129,7 +102,7 @@
                   @if(Auth::guest())
                   <a href="{{ URL::to('login') }}" class="aa-login">Login</a>
                   @else
-                  <a href="" class="aa-login">Backend</a>
+                  <a href="/home" class="aa-login">Home</a>
                   @endif
                 </div>
               </div>
@@ -157,14 +130,11 @@
           <!-- Text based logo -->
             <div class="row" id="request-demo-row">
               <div class="col-sm-6">
-                <a class="navbar-brand aa-logo" href="{{ URL::to('/') }}"> TheInternship</a>
-              </div>
-              <div class="col-sm-6">
-                <a class="aa-view-btn pull-right request-a-demo" href=""> Request a <span>demo </span></a>
+                <a class="navbar-brand aa-logo" href="{{ URL::to('/') }}"> InternshipSpace</a>
               </div>
             </div>
            <!-- Image based logo -->
-           <!-- <a class="navbar-brand aa-logo-img" href="{{ URL::to('front/index.html') }}"><img src="{{ ('front/img/logo.png') }}" alt="logo"></a> -->
+           <!-- <a class="navbar-brand aa-logo-img" href="{{ URL::to('front/index.html') }}"><img src="{{ ('logo.png') }}" alt="logo"></a> -->
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
@@ -174,13 +144,11 @@
              <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="{{ URL::to('') }}">COMPANIES <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">                
-                <li><a href="{{ URL::to('') }}">COMPANIES</a></li>                                         
+                <li><a href="{{ route('companies') }}">COMPANIES</a></li>                                         
               </ul>
              --}}
-            <li><a href=""><small><i class="fa fa-building-o"></i></small> COMPANIES</a></li>                                         
+            <li><a href="{{ route('companies') }}"><small><i class="fa fa-building-o"></i></small> COMPANIES</a></li>                                         
             <li><a href="{{route('contact-us') }}"><small><i class="fa fa-phone"></i></small> CONTACT US</a></li>                                         
-            <!-- <li><a href="{{ URL::to('') }}">GALLERY</a></li>                                          -->
-            <!-- <li><a href="{{ URL::to('') }}">CONTACT</a></li> -->
           </ul>                            
         </div>
         <!--/.nav-collapse -->       
@@ -200,22 +168,22 @@
           <div class="row">
             <div class="col-md-2 col-sm-6 col-xs-12">
               <div class="aa-footer-left">
-               <p>&copy; <a rel="nofollow" href="http://theinternship.com/">TheInternship.com</a></p>
+               <p>&copy; <a rel="nofollow" href="http://internshipspace.com/">InternshipSpace.com</a></p>
               </div>
             </div>
             <div class="col-md-5 col-sm-6 col-xs-12">
               <div class="aa-footer-middle">
-                <a target="_blank" href="https://www.facebook.com/theinternship"><i class="fa fa-facebook"></i></a>
-                <a target="_blank" href="https://twitter.com/theinternship"><i class="fa fa-twitter"></i></a>
+                <a target="_blank" href="https://www.facebook.com/internshipspace"><i class="fa fa-facebook"></i></a>
+                <a target="_blank" href="https://twitter.com/internshipspace"><i class="fa fa-twitter"></i></a>
                 <!-- <a target="_blank" href=""><i class="fa fa-google-plus"></i></a> -->
                 <!-- <a href=""><i class="fa fa-youtube"></i></a> -->
-                <a target="_blank" href="https://www.linkedin.com/company/theinternship"><i class="fa fa-linkedin"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/company/internshipspace"><i class="fa fa-linkedin"></i></a>
               </div>
             </div>
             <div class="col-md-5 col-sm-12 col-xs-12">
               <div class="aa-footer-right">
                 <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> Home</a>
-                <a href=""><small><i class="fa fa-building-o"></i></small> Companies</a>
+                <a href="{{route('companies')}}"><small><i class="fa fa-building-o"></i></small> Companies</a>
                 <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> Contact us</a>
              
                 <a href="{{ URL::to('') }}">Support</a>
@@ -242,20 +210,7 @@
   @include('modals')
 
   <script src="{{ asset('js/app.js') }}"></script>
-  <!-- jQuery library -->
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-  <!-- <script src="{{ asset('js/jquery.min.js') }}"></script>    -->
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <!-- slick slider -->
-  <!-- <script type="text/javascript" src="{{ URL::to('front/js/slick.js') }}"></script> -->
-  {{--
-  <!-- Price picker slider -->
-  <!-- <script type="text/javascript" src="{{ URL::to('front/js/nouislider.js') }}"></script> -->
-   <!-- mixit slider -->
-  --}}
-  <!-- <script type="text/javascript" src="{{ URL::to('front/js/jquery.mixitup.js') }}"></script> -->
-  <!-- Add fancyBox -->        
-  <!-- <script type="text/javascript" src="{{ URL::to('front/js/jquery.fancybox.pack.js') }}"></script> -->
+  
   <!-- Custom js -->
   <script src="{{ asset('bootstrap-select/js/bootstrap-select.js') }}"></script>
   <!-- <script src="{{ asset('js/jquery.onscreen.min.js') }}"></script> -->
@@ -267,35 +222,8 @@
     <script src="{{ asset('js/progressive-image.js') }}"></script>
 
 
-  {{--
-  <script type="text/javascript">
-      if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        document.write("{{ asset('js/viewportchecker.js') }}")
-        document.write("{{ asset('js/progressive-image.js') }}")
-      }
-  </script>
-  --}}
-
-
   <script src="{{asset('js/custom.js') }}"></script> 
 
   @yield('extra_js')
-  @yield('make_a_request_js')
-  <script type="text/javascript">
-    $(document).ready(function(e){
-      {{-- ON LOAD, SHOW REQUEST FOR DEMO DIV IF LOADING WITH INPUT ERRORS --}}
-      @if(count($errors) > 0)
-        $('#request-a-demo-div').modal();
-        console.log('has errors')
-      @endif
-    })
-    $(function(){
-      $('.progressive-image').progressiveImage(); 
-    });
-    $(window).on('resize', function(){
-      $('.progressive-image').progressiveImage(); 
-    });
-  </script>
-
   </body>
 </html>

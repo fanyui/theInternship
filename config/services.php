@@ -36,22 +36,22 @@ return [
     ],
 
     'twitter' => [
-        'client_id'     => env('TWITTER_ID'),
-        'client_secret' => env('TWITTER_SECRET'),
-        'redirect'      => env('TWITTER_URL'),
+        'client_id'     => "tYdL7JJc4k9c0v6bFPVdiL7Xb",
+        'client_secret' => "mJ9XUzufVd6Xee2zJrvbFN7GN5ecCzOYcpG5KP7WMn7fVzMxqA",
+        'redirect'      => "http://localhost:8000/login/twitter/callback",
     ],
 
     'facebook' => [
-        'client_id'     => env('FACEBOOK_ID'),
+        'client_id'     => '152195688896762',
         'client_secret' => env('FACEBOOK_SECRET'),
-        'redirect'      => env('FACEBOOK_URL'),
+        'redirect'      => 'http://localhost:8000/login/facebook/callback',
     ],
 
     'google' => [
-        'client_id'     => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        // 'redirect' => env('APP_URL') . 'google/login',
-        'redirect'      =>  env('GOOGLE_URL'),
+        'client_id'     => "891870177320-088pt0oouf2t4le64om8dcui740o5ifl.apps.googleusercontent.com",
+        'client_secret' => "mnasuYIi8WP4h0WDPSxGGXyt",
+        'redirect' => "http://localhost:8000/login/google/callback",
+   
     ],
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),         // Your GitHub Client ID

@@ -24,6 +24,7 @@ class CreateCompaniesTable extends Migration
             $table->string('website');//done
             $table->integer('duration');//done
             $table->string('application_period'); //done
+            $table->string('application_end_period');
             $table->string('intern_number');//done
             // $table->string('image'); deprecated in place of images table
             $table->double('longitude')->nullable();

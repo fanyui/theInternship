@@ -8,7 +8,7 @@ class Country extends Model
 {
 	public function states()
  	{
-  		return $this->hasMany(\App\State::class);
+  		return $this->hasMany(\App\State::class,'country_id');
  	}
  	public function company()
  	{
