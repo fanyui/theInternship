@@ -49,11 +49,9 @@ class SitemapController extends Controller
             //adding search by country url to sitemap
             foreach ($countries as $country) {
                  $sitemap->add(URL::to(route('search').'?country='.$country->id), Carbon::now(), '0.7', 'yearly', $defaultImg);
-            }
+        	}
 
-          
-
-    }
+    	}
 
     return   $sitemap->render('xml');
     }

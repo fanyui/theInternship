@@ -21,6 +21,7 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 Route::get('/', 'SearchController@layouts')->name('index');
 Auth::routes();
 
+Route::get('/sitemap', 'SitemapController@sitemap')->name('sitemap');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', 'SearchController@search')->name('search');
@@ -33,7 +34,7 @@ Route::get('/companies', 'SearchController@companies')->name('companies');
 Route::post('/country/states', 'LocationController@ajax_country_states');
 Route::post('/state/cities', 'LocationController@ajax_states_cities');
 
-Route::get('/company/new', 'CompanyController@index');
+Route::get('/company/new', 'CompanyController@index')->name('create-company');
 Route::post('/company/new', 'CompanyController@new')->name('company-new');
 
 Route::get('/media/{company_id}/new', 'CompanyController@media')->name('media');
