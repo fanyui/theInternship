@@ -49,8 +49,16 @@ class ApiSearchController extends Controller
         $address = $company->address()->first();
         $category = $company->category()->get();
 
+        $images = array();
+        foreach($company->images as $image){
+            
+                      $images[] =  asset($image->thumbnail_img);  
+                       
+        }
+             
+
        
 
-        return response()->json(array('countries'=>$countries, 'address'=>$address, 'category'=>$category, 'images'=>$company->images)); 
+        return response()->json(array('countries'=>$countries, 'address'=>$address, 'category'=>$category, 'images'=>$images)); 
     }
 }
