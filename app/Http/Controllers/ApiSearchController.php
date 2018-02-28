@@ -29,14 +29,28 @@ class ApiSearchController extends Controller
     public function featuredSearch(Request $request)
     {
     	$searchTerm = $request->get('searchTerm');
-    	$company = Company::all();
+    	$company = Company::get();
     		// return 	Company::whereHas('category', function($q) use ( $searchTerm){
     						// $q->Where('field', $searchTerm)->get();
 
     					// });
-    	$companies = Category::where('field', $searchTerm)->company()->get();
+    	// $companies = Category::where('field', $searchTerm)->company()->get();
     	//$companies = Category::where('name', 'like', '%'.$searchTerm.'%' )->company();
+    	return $company;
     	return $companies;
-    	return $companies;
+    }
+
+    public function fullDetails(Request $request, $id)
+    {
+        //get the details needed to display a particular company in full
+
+        $countries = Country::get();
+         $company = Company::find($id);
+        $address = $company->address()->first();
+        $category = $company->category()->get();
+
+       
+
+        return response()->json(array('countries'=>$countries, 'address'=>$address, 'category'=>$category, 'images'=>$company->images)); 
     }
 }

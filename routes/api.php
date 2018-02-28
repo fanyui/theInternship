@@ -22,7 +22,9 @@ Route::get('/company', 'ApiSearchController@search');
 
 //handle search by using built in category field when user clicks featured company
 //eg. IT, medicine, agriculture, etc
-Route::get('/searchTerm', 'ApiSearchController@featuredSearch');
+Route::get('/company/category', 'ApiSearchController@featuredSearch');
+
+Route::get('/company/{id}/full', 'ApiSearchController@fullDetails');
 
 //handles the details of a company search
 Route::get('/search/details/{company}', 'ApiSearchController@searchDetails');
