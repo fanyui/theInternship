@@ -23,7 +23,9 @@ class SitemapController extends Controller
         //if cache does not exist, create one and cache else render the already cached one
        if (!$sitemap->isCached()){
             $companies = Company::get();   
-            $countries = Country::whereHas('company')->get();
+            $countries = Country::get();
+            $defaultImg  = array(array('url' =>  URL::to('/img/logo.jpg'), 'title'=>"internship Space"));
+
            
             $sitemap->add(URL::to(route('index')), Carbon::now(), '0.9', 'daily');
             $sitemap->add(URL::to(route('front')), Carbon::now(), '0.9', 'daily');
@@ -42,7 +44,7 @@ class SitemapController extends Controller
                         $images[]= array('url'=> URL::to($image->img_path), 'title'=>$company->name);
                     }
                 }
-                $sitemap->add(URL::to(route('search-details')), Carbon::now(), '1.0', 'daily', $images);
+                $sitemap->add(URL::to(route('search-details',['slug'=>$company->id])), Carbon::now(), '1.0', 'daily', $images);
             }
       
 

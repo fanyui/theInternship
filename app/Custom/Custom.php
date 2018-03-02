@@ -153,9 +153,10 @@ class Custom
                 array_push($search, $value);
              }
              
+            
             $company = $company->whereHas('category', function($q) use ($request, $search){
                 for ($i=0; $i < count($search); $i++)
-                    $q->orWhere('name', 'like', '%'.$search[$i].'%')
+                    $q->where('name','like', '%'.$search[0].'%')-> orWhere('name', 'like', '%'.$search[$i].'%')->orWhere('field', 'like', '%'.$search[$i].'%')
                 ;
             });
 
