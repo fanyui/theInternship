@@ -7,6 +7,8 @@ use Image;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use App\Exceptions\RoleNotFoundException;
+
 
 use Carbon\Carbon; 
 use App\Company;
