@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12 col-sm-6">
         <div class="aa-property-header-inner">
-          <h2>Company Details</h2>
+          <h2>@lang('sentence.company_details')</h2>
           <ol class="breadcrumb">
           <li><a href="{{ route('home') }}">THEINTERNSHIP</a></li>   
           
@@ -43,7 +43,7 @@
                         </div>
 	                    
 	                    <div class="col-md-2 col-sm-4 {{ $errors->has('country') ? ' has-error' : '' }}">
-                                         <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="country " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
+                                         <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="@lang('words.country') " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
                             @if ($countries->count())
                                 @foreach($countries as $country)
                                              <option value="{{$country->id}}" {{ old('country') == $country->id ? 'selected' : null }} > {{ $country->name}} </option>
@@ -59,7 +59,7 @@
                     </div> 
 
                     <div class="col-md-2 col-sm-5 {{ $errors->has('state') ? ' has-error' : '' }}">
-                        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select State" id="state"  name="state">
+                        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.state')" id="state"  name="state">
                         </select>
                        
                         @if ($errors->has('state'))
@@ -70,7 +70,7 @@
                     </div>
 
                         <div class="col-md-2 col-sm-4 col-md-offset-0 col-sm-offset-2 {{ $errors->has('city') ? ' has-error' : '' }}">
-                            <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select City" id="city"  name="city">
+                            <select class="col-md-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.city')" id="city"  name="city">
                             </select>
                             
                             @if ($errors->has('city'))
@@ -81,7 +81,7 @@
                         </div>
 	                    <div class="col-xs-12 col-sm-6 col-md-2">
 	                    	<span class="links"> &nbsp</span>
-	                    <button type="submit" class="btn btn-lg btn-primary">search</button>
+	                    <button type="submit" class="btn btn-lg btn-primary">@lang('words.search')</button>
 	                    </div>
                 	</div> 
                 </div>
@@ -103,8 +103,7 @@
 	</div>
 </section>
     <div class="row">
-    	
-      {{-- Listing head info (operation, slider, location, headline, price) --}}
+
       <div class="col-md-8 col-sm-12">
       		<div class="panel panel-info sm">
                     <div class="panel-heading">
@@ -114,22 +113,22 @@
 						<span class="pull-right"> <img src="{{asset('uploads/company/logo/'. $company->logo) }}" alt="{{ $company->logo }}" class="img-circle" width="100" height="100"></span><br>
 				        <span>Email: <b>{{ $address->email }}</b> </span><br>
 				        <span>Tel: <b>{{ $address->telephone }}</b> </span><br>
-				        <span>Country: <b>{{ $address->country->name }}</b> </span><br>
-				        <span>Internship Duration: <b>{{ $company->duration }} (months)</b> </span><br>
-				        <span>Application Start period: <b>{{ $company->application_period }}</b> </span><br>
-                <span>Application End period: <b>{{ $company->application_end_period }}</b> </span><br>
-				        <span>Number of Interns: <b>{{ $company->intern_number }}</b> </span><br>
+				        <span>@lang('words.country'): <b>{{ $address->country->name }}</b> </span><br>
+				        <span>@lang('sentence.internship_duration'): <b>{{ $company->duration }} (@lang('words.month'))</b> </span><br>
+				        <span>@lang('sentence.app_start_period') <b>{{ $company->application_period }}</b> </span><br>
+                <span>@lang('sentence.app_end_period') <b>{{ $company->application_end_period }}</b> </span><br>
+				        <span>@lang('sentence.no_of_interns') <b>{{ $company->intern_number }}</b> </span><br>
 						<span><a href="http://{{ $company->website}}" target="blank">{{ $company->website }} </a> </span>
 				        <hr>
-                <span class="pull-right"> <a href="{{route('media',['slug' => $company->id])}} " class="btn btn-primary"> Apply Now!!!</a></span>
+                <span class="pull-right"> <a href="{{route('media',['slug' => $company->id])}} " class="btn btn-primary"> @lang('sentence.apply_now')</a></span>
 				    </div>
 			</div>
 		      	
 	
-			<center><h3 class="center"> Company Description </h3></center>
+			<center><h3 class="center"> @lang('sentence.company_description')</h3></center>
 			<p>{{ $company->description }}</p>
       @if($company->images)
-      <h2>A Feel of what is looks like at <i>{{$company->name}}</i></h2>
+      <h2>@lang('sentence.what_its_like_at')<i>{{$company->name}}</i></h2>
         
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->

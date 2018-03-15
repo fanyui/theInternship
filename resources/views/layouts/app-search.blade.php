@@ -43,12 +43,12 @@
 
                         <div  class="col-md-5 col-sm-12">
                         
-                        <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
+                        <input type="text" name="search" class="form-control" placeholder="@lang('sentence.field_of_study')">
                           
                         </div>
                         
                         <div class="col-md-2 col-sm-6 {{ $errors->has('country') ? ' has-error' : '' }}">
-                                         <select   class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="country " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
+                                         <select   class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="@lang('words.country') " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
                             @if ($countries->count())
                                 @foreach($countries as $country)
                                              <option value="{{$country->id}}" {{ old('country') == $country->id ? 'selected' : null }} > {{ $country->name}} </option>
@@ -64,7 +64,7 @@
                     </div> 
 
                     <div class="col-md-1 col-sm-6 {{ $errors->has('state') ? ' has-error' : '' }}">
-                        <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="Select State" id="state"  name="state">
+                        <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="@lang('words.country') @lang('words.state')" id="state"  name="state">
                         </select>
                        
                         @if ($errors->has('state'))
@@ -75,7 +75,7 @@
                     </div>
 
                         <div class="col-md-1 col-sm-6 col-md-offset-0 col-sm-offset-0 {{ $errors->has('city') ? ' has-error' : '' }}">
-                            <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="Select City" id="city"  name="city">
+                            <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="@lang('words.country') @lang('words.city')" id="city"  name="city">
                             </select>
                             
                             @if ($errors->has('city'))
@@ -85,7 +85,7 @@
                             @endif
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-1">
-                        <button type="submit" class="btn btn-md btn-primary">search</button>
+                        <button type="submit" class="btn btn-md btn-primary">@lang('words.search')</button>
                         </div>
                     </div> 
                 </div>

@@ -1,7 +1,7 @@
 <div>
 <div class="col-sm-3 col-xs-12 col-p-5 listing-images-item">
 			<div>
-				<div><label> Company Logo</label><i class="del-listing-image pull-right fa fa-times text text-danger"></i></div>
+				<div><label>@lang('words.company_logo')</label><i class="del-listing-image pull-right fa fa-times text text-danger"></i></div>
 				<img class="img-responsive" src="{{ asset('img/upload.png') }}">
 				<input type="file" class="form-control add-new-listing-image" name="logo">
 			</div>

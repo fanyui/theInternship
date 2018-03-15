@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12 col-sm-6">
         <div class="aa-property-header-inner">
-          <h2>List of Companies</h2>
+          <h2>@lang('sentence.list_of_companies')</h2>
           <ol class="breadcrumb">
           <li><a href="{{ route('home') }}">THEINTERNSHIP</a></li>   
           
@@ -38,12 +38,12 @@
 
 	                    <div  class="col-md-4 col-sm-4">
 	                    
-	                    <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
+	                    <input type="text" name="search" class="form-control" placeholder="@lang('sentence.field_of_stusy')">
 	                      
                         </div>
 	                    
 	                    <div class="col-md-2 col-sm-4 {{ $errors->has('country') ? ' has-error' : '' }}">
-                                         <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="country " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
+                                         <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="@lang('words.country') " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
                             @if ($countries->count())
                                 @foreach($countries as $country)
                                              <option value="{{$country->id}}" {{ old('country') == $country->id ? 'selected' : null }} > {{ $country->name}} </option>
@@ -59,7 +59,7 @@
                     </div> 
 
                     <div class="col-md-2 col-sm-5 {{ $errors->has('state') ? ' has-error' : '' }}">
-                        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select State" id="state"  name="state">
+                        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.state')" id="state"  name="state">
                         </select>
                        
                         @if ($errors->has('state'))
@@ -70,7 +70,7 @@
                     </div>
 
                         <div class="col-md-2 col-sm-4 col-md-offset-0 col-sm-offset-2 {{ $errors->has('city') ? ' has-error' : '' }}">
-                            <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select City" id="city"  name="city">
+                            <select class="col-md-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.city')" id="city"  name="city">
                             </select>
                             
                             @if ($errors->has('city'))
@@ -81,7 +81,7 @@
                         </div>
 	                    <div class="col-xs-12 col-sm-6 col-md-2">
 	                    	<span class="links"> &nbsp</span>
-	                    <button type="submit" class="btn btn-lg btn-primary">search</button>
+	                    <button type="submit" class="btn btn-lg btn-primary">@lang('words.search')</button>
 	                    </div>
                 	</div> 
                 </div>
@@ -99,7 +99,7 @@
 @section('content')
 <div class="container">
   <div class="row">
-    <h2 class="lead"><strong class="text-danger">{{$count}}</strong> results were found </h2>
+    <h2 class="lead"><strong class="text-danger">{{$count}}</strong> @lang('sentence.result_found')</h2>
     <div class="col col-md-8">
       
   
@@ -108,11 +108,11 @@
           <a href="{{ route('search-details',['slug' => $company->id ]) }} " target="_blank"> <h3> {{ $company->name }}</h3></a>
 
           <p>{{ substr($company->description, 0, 300) }} 
-            <a href="{{ route('search-details',['slug' => $company->id ]) }} "> view more</a>
+            <a href="{{ route('search-details',['slug' => $company->id ]) }} "> @lang('sentence.view_more')</a>
           </p>
         @endforeach
       @else
-        <h2>No results were found</h2>
+        <h2>@lang('sentence.no_result_found')</h2>
       @endif
     </div>
     <div class="col col-md-4">

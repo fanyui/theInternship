@@ -98,11 +98,11 @@
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-right">
-                  <a href="{{ URL::to('register') }}" class="aa-register">Register</a>
+                  <a href="{{ URL::to('register') }}" class="aa-register">@lang('words.register')</a>
                   @if(Auth::guest())
-                  <a href="{{ URL::to('login') }}" class="aa-login">Login</a>
+                  <a href="{{ URL::to('login') }}" class="aa-login">@lang('words.login')</a>
                   @else
-                  <a href="/home" class="aa-login">Home</a>
+                  <a href="/home" class="aa-login">@lang('words.home')</a>
                   @endif
                 </div>
               </div>
@@ -138,17 +138,17 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
-            <li sclass="active"><a href="{{ URL::to('') }}"><small><i class="fa fa-home"></i></small> HOME</a></li>
+            <li sclass="active"><a href="{{ URL::to('') }}"><small><i class="fa fa-home"></i></small> @lang('words.HOME')</a></li>
             </li>
              {{-- 
              <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="{{ URL::to('') }}">COMPANIES <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="{{ URL::to('') }}">@lang('words.companies') <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">                
-                <li><a href="{{ route('companies') }}">COMPANIES</a></li>                                         
+                <li><a href="{{ route('companies') }}">@lang('words.companies')</a></li>                                         
               </ul>
              --}}
-            <li><a href="{{ route('companies') }}"><small><i class="fa fa-building-o"></i></small> COMPANIES</a></li>                                         
-            <li><a href="{{route('contact-us') }}"><small><i class="fa fa-phone"></i></small> CONTACT US</a></li>                                         
+            <li><a href="{{ route('companies') }}"><small><i class="fa fa-building-o"></i></small> @lang('words.companies')</a></li>                                         
+            <li><a href="{{route('contact-us') }}"><small><i class="fa fa-phone"></i></small> @lang('words.CONTACT_US')</a></li>                                         
           </ul>                            
         </div>
         <!--/.nav-collapse -->       
@@ -182,9 +182,9 @@
             </div>
             <div class="col-md-5 col-sm-12 col-xs-12">
               <div class="aa-footer-right">
-                <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> Home</a>
+                <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> @lang('words.home')</a>
                 <a href="{{route('companies')}}"><small><i class="fa fa-building-o"></i></small> Companies</a>
-                <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> Contact us</a>
+                <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> @lang('words.contact_us')</a>
              
                 <a href="{{ URL::to('') }}">Support</a>
                 <a href="{{ URL::to('') }}">License</a>
@@ -214,8 +214,6 @@
   <!-- Custom js -->
   <script src="{{ asset('bootstrap-select/js/bootstrap-select.js') }}"></script>
   <!-- <script src="{{ asset('js/jquery.onscreen.min.js') }}"></script> -->
-
-  {{-- Since we are allowing this animation only on desktop and preventing it on mobile, we also need to check if we are not on mobile before adding the various jquery libraries to the dom. This should reduce the page size on mobile devices.  --}}
 
 
     <script src="{{ asset('js/viewportchecker.js') }}"></script>

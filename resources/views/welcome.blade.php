@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right navbar-uppercase">
                     <li>
-                        <a href="{{route('contact-us')}} " target="_blank">Contact Us</a>
+                        <a href="{{route('contact-us')}} " target="_blank">@lang('words.contact_us')</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -86,7 +86,7 @@
                     <div class="title-area">
                       
                         <h1>Internship Space</h1>
-                        <h3>Build your skill with industrial standard by doing internships in </h2>
+                        <h3>@lang('sentence.banner')</h2>
                         <div class="separator line-separator">♦</div>
 
                     </div>
@@ -99,19 +99,19 @@
 
                         <div  class="col-md-5 col-sm-12">
                         
-                        <input type="text" name="search" class="form-control" placeholder="company type or field of specialty">
-                           <span > search keyword </span>
+                        <input type="text" name="search" class="form-control" placeholder="@lang('sentence.field_of_study')">
+                           <span > @lang('sentence.search_keyword') </span>
                         </div>
                         
                         <div class="col-md-2 col-sm-6 {{ $errors->has('country') ? ' has-error' : '' }}">
-                                         <select   class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="Select " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
+                                         <select   class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.country')" tabindex="10"  name="country" id="country" value="{{ old('country') }}">
                             @if ($countries->count())
                                 @foreach($countries as $country)
                                              <option value="{{$country->id}}" {{ old('country') == $country->id ? 'selected' : null }} > {{ $country->name}} </option>
                                 @endforeach
                             @endif
                         </select>
-                        <center>Country <a style="display: inline-block;" href="#" class="cant-find" data-missing="country" >{{-- Can't find my country --}}</a></center>
+                        <center>@lang('words.country') <a style="display: inline-block;" href="#" class="cant-find" data-missing="country" >{{-- Can't find my country --}}</a></center>
 
                         @if ($errors->has('country'))
                             <span class="help-block">
@@ -121,9 +121,9 @@
                     </div> 
 
                     <div class="col-md-2 col-sm-6 {{ $errors->has('state') ? ' has-error' : '' }}">
-                        <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="Select State" id="state"  name="state">
+                        <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.state')" id="state"  name="state">
                         </select>
-                        <center>State <a style="display: inline-block;" href="#" class="cant-find" data-missing="state" >{{-- Can't find my state --}}</a></center>
+                        <center>@lang('words.state') <a style="display: inline-block;" href="#" class="cant-find" data-missing="state" >{{-- Can't find my state --}}</a></center>
 
                         @if ($errors->has('state'))
                             <span class="help-block">
@@ -133,9 +133,9 @@
                     </div>
 
                         <div class="col-md-2 col-sm-6 col-md-offset-0 col-sm-offset-0 {{ $errors->has('city') ? ' has-error' : '' }}">
-                            <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="Select City" id="city"  name="city">
+                            <select class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.city')" id="city"  name="city">
                             </select>
-                            <center>Town / City <a style="display: inline-block;" href="#" class="cant-find" data-missing="city" >{{-- Can't find my town --}}</a> </center>
+                            <center>@lang('words.town_city') <a style="display: inline-block;" href="#" class="cant-find" data-missing="city" >{{-- Can't find my town --}}</a> </center>
                             @if ($errors->has('city'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('city') }}</strong>
@@ -144,7 +144,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-1">
                        
-                        <button type="submit" class="btn btn-md btn-fill btn-white btn-block">search</button>
+                        <button type="submit" class="btn btn-md btn-fill btn-white btn-block">@lang('words.search')</button>
                         </div>
                     </div> 
                 </div>
@@ -162,9 +162,9 @@
         <div class="container">
             <div class="row">
                 <div class="title-area">
-                    <h2>Our Services</h2>
+                    <h2>@lang('sentence.our_service')</h2>
                     <div class="separator separator-danger">✻</div>
-                    <p class="description"> We bring to you an opportunity to get yourself ready for the job market through internship in companies of all domain.</p>
+                    <p class="description"> @lang('sentence.opportunity')</p>
                 </div>
             </div>
             <div class="row">
@@ -173,8 +173,8 @@
                         <div class="icon text-danger">
                             <i class="pe-7s-attention"></i>
                         </div>
-                        <h3>Trust</h3>
-                        <p class="description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best Solutions for those needs.</p>
+                        <h3>@lang('words.trust')</h3>
+                        <p class="description">@lang('sentence.trust_description')</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -182,8 +182,8 @@
                         <div class="icon text-danger">
                             <i class="pe-7s-note2"></i>
                         </div>
-                        <h3>Content</h3>
-                        <p class="description">We Reach out for Companies and get them to agree and provide us with the information we are providing to you and also for them to treate the information they receive from us with greate care and priority</p>
+                        <h3>@lang('words.content')</h3>
+                        <p class="description">@lang('sentence.content_description')</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -191,8 +191,8 @@
                         <div class="icon text-danger">
                             <i class="pe-7s-network"></i>
                         </div>
-                        <h3>Professional</h3>
-                        <p class="description">We like to present the youth with proffessional skills, so we make sure we spread the word regarding the availability of the internship locations and our services.</p>
+                        <h3>@lang('words.professional')</h3>
+                        <p class="description">@lang('sentence.professonal_description')</p>
                     </div>
                 </div>
             </div>
@@ -208,9 +208,9 @@
                 <div class="content">
                     <div class="row">
                         <div class="title-area">
-                            <h2>Who We Are</h2>
+                            <h2>@lang('sentence.who_we_are')</h2>
                             <div class="separator separator-danger">✻</div>
-                            <p class="description">We are a team of skilled engineers, we believe that we can transform the world around us by working together, as the saying goes "Your network determines your net worth".</p>
+                            <p class="description">@lang('sentence.who_we_are_description')</p>
                         </div>
                     </div>
 
@@ -227,7 +227,7 @@
                                                 <div class="description">
                                                     <h3 class="title">Dirane</h3>
                                                     <p class="small-text">Co-Founder of Afayi</p>
-                                                    <p class="description">I am a Computer Science student from the university of Buea, with a good problem solving skills and software project management</p>
+                                                    <p class="description">@lang('sentence.dirane_description')</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -241,7 +241,7 @@
                                                 <div class="description">
                                                     <h3 class="title">Harisu</h3>
                                                     <p class="small-text">Co-Founder of Afayi</p>
-                                                    <p class="description">I am a software Engineering student from the university of Buea, with experience in Algorithms, Software design, programming and web disign</p>
+                                                    <p class="description">@lang('sentence.harisu_description')</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -274,8 +274,8 @@
     <div class="section section-our-clients-freebie">
         <div class="container">
             <div class="title-area">
-                <h5 class="subtitle text-gray">Here are some</h5>
-                <h2>Clients Testimonials</h2>
+                <h5 class="subtitle text-gray">@lang('sentence.here_are_some')</h5>
+                <h2>@lang('sentence.testimonial')</h2>
                 <div class="separator separator-danger">∎</div>
             </div>
 
@@ -332,13 +332,13 @@
             </div>
             <div class="container">
                 <div class="title-area">
-                    <h2 class="text-white">Do you have something in mind?</h2>
+                    <h2 class="text-white">@lang('sentence.something_in_mind')</h2>
                     <div class="separator line-separator">♦</div>
-                    <p class="description"> We are keen and open to feedback and suggestions ! We design our system having our customers(professional skill seekers) in mind and we never disappoint!</p>
+                    <p class="description"> @lang('sentence.feedback_description')</p>
                 </div>
 
                 <div class="button-get-started">
-                    <a href="{{ route('contact-us') }}" class="btn btn-danger btn-fill btn-lg">Contact Us</a>
+                    <a href="{{ route('contact-us') }}" class="btn btn-danger btn-fill btn-lg">@lang('words.contact_us')</a>
                 </div>
             </div>
         </div>
@@ -347,16 +347,16 @@
                 <div class="contact-container">
                     <div class="address-container add-animation animation-1">
                         <div class="address">
-                            <h4>Where to meet ?</h4>
+                            <h4>@lang('words.where_to_meet')</h4>
                             <p class="text-gray">
                                  Molyko Buea <br>
                                 Southwest, Cameroon
                             </p>
-                            <h4>Want to say hello?</h4>
+                            <h4>@lang('sentence.want_to_say_Hello')</h4>
                             <a target="_blank" href="/contact-us"  class="btn btn-black btn-contact">
-                                CONTACT US <i class="fa fa-paper-plane"></i>
+                                @lang('words.contact_us') <i class="fa fa-paper-plane"></i>
                             </a>
-                            <h4>Thank you for informing Others about us!</h4>
+                            <h4>@lang('sentence.thanks_for_sharing')</h4>
 
 
                             <div class="col-md-6">
@@ -400,9 +400,9 @@
             </div>
             <div class="col-md-5 col-sm-12 col-xs-12">
               <div class="aa-footer-right">
-                <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> Home</a>
+                <a href="{{ URL::to('/') }}"><small><i class="fa fa-home"></i></small> @lang('words.home')</a>
                 <a href="{{route('companies')}}"><small><i class="fa fa-building-o"></i></small> Companies</a>
-                <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> Contact us</a>
+                <a href="{{ route('contact-us') }}"><small><i class="fa fa-phone"></i></small> @lang('words.contact_us')</a>
              
                 <a href="{{ URL::to('') }}">Support</a>
                 <a href="{{ URL::to('') }}">License</a>
@@ -417,7 +417,7 @@
           <div style="clear: both;"></div>
             <hr />
             <div class="center" style="color: white">
-                 © <script> document.write(new Date().getFullYear()) </script> Internship Space,made with inspiration
+                 © <script> document.write(new Date().getFullYear()) </script> @lang('sentence.footer_made_with')
             </div>
         </div>
       </div>

@@ -29,15 +29,10 @@ class ApiSearchController extends Controller
     public function featuredSearch(Request $request)
     {
     	$searchTerm = $request->get('searchTerm');
-    	$company = Company::get();
-    		// return 	Company::whereHas('category', function($q) use ( $searchTerm){
-    						// $q->Where('field', $searchTerm)->get();
 
-    					// });
-    	// $companies = Category::where('field', $searchTerm)->company()->get();
-    	//$companies = Category::where('name', 'like', '%'.$searchTerm.'%' )->company();
-    	return $company;
-    	return $companies;
+         return 	Company::whereHas('category',function($q) use ($searchTerm){
+                            $q->Where('field', $searchTerm);
+                        })->get();
     }
 
     public function fullDetails(Request $request, $id)
@@ -49,8 +44,16 @@ class ApiSearchController extends Controller
         $address = $company->address()->first();
         $category = $company->category()->get();
 
+        $images = array();
+        foreach($company->images as $image){
+            
+                      $images[] =  asset($image->thumbnail_img);  
+                       
+        }
+             
+
        
 
-        return response()->json(array('countries'=>$countries, 'address'=>$address, 'category'=>$category, 'images'=>$company->images)); 
+        return response()->json(array('countries'=>$countries, 'address'=>$address, 'category'=>$category, 'images'=>$images)); 
     }
 }
