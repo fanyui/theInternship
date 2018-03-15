@@ -46,7 +46,7 @@
 	        		{!! csrf_field() !!}
 	                
 	                <div class="col-md-2 col-sm-4 col-md-offset-2 col-sm-offset-2 {{ $errors->has('country') ? ' has-error' : '' }}">
-				        <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="Select Country" tabindex="10"  name="country" id="country" value="{{ old('country') }}" required >
+				        <select   class="col-md-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.country')" tabindex="10"  name="country" id="country" value="{{ old('country') }}" required >
 				            @if ($countries->count())
 				                @foreach($countries as $country)
 				                    <option value="{{$country->id}}" {{ old('country') == $country->id ? 'selected' : null }} > {{ $country->name}} </option>
@@ -63,7 +63,7 @@
 				    </div> 
 
 				    <div class="col-md-2 col-sm-5 {{ $errors->has('state') ? ' has-error' : '' }}">
-				        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select State" id="state"  name="state">
+				        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.state')" id="state"  name="state">
 				        </select>
 				        <center>State <a  href="#" class="cant-find" data-missing="state" >{{-- Can't find my state --}}</a></center>
 
@@ -75,9 +75,9 @@
 				    </div>
 
 				    <div class="col-md-2 col-sm-4 col-md-offset-0 col-sm-offset-3 {{ $errors->has('city') ? ' has-error' : '' }}">
-				        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="Select City" id="city"  name="city">
+				        <select class="col-md-12 form-control selectpicker" data-live-search="true" title="@lang('words.select') @lang('words.city')" id="city"  name="city">
 				        </select>
-				        <center>Town / City <a  href="#" class="cant-find" data-missing="city" >{{-- Can't find my town --}}</a> </center>
+				        <center>@lang('words.town_city') <a  href="#" class="cant-find" data-missing="city" >{{-- Can't find my town --}}</a> </center>
 				        @if ($errors->has('city'))
 				            <span class="help-block">
 				                <strong>{{ $errors->first('city') }}</strong>

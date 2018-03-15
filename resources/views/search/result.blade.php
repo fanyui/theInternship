@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<h2 class="lead"><strong class="text-danger">{{count($companies)}}</strong> results were found </h2>
+		<h2 class="lead"><strong class="text-danger">{{count($companies)}}</strong> @lang('sentence.result_found') </h2>
 		<div class="col col-md-8">
 			
 	
@@ -18,11 +18,11 @@
 					<a href="{{ route('search-details',['slug' => $company->id ]) }} " target="_blank"> <h3> {{ $company->name }}</h3></a>
 
 					<p>{{ substr($company->description, 0, 300) }} 
-						<a href="{{ route('search-details',['slug' => $company->id ]) }} "> view more</a>
+						<a href="{{ route('search-details',['slug' => $company->id ]) }} "> @lang('sentence.view_more')</a>
 					</p>
 				@endforeach
 			@else
-				<h2>No results were found</h2>
+				<h2>@lang('sentence.no_result_found')</h2>
 			@endif
 		</div>
 		<div class="col col-md-4">
