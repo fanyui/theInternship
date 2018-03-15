@@ -104,7 +104,7 @@
                         </div>
                         
                         <div class="col-md-2 col-sm-6 {{ $errors->has('country') ? ' has-error' : '' }}">
-                                         <select   class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="Select " tabindex="10"  name="country" id="country" value="{{ old('country') }}">
+                                         <select   class="col-md-12 col-sm-12 form-control selectpicker" data-live-search="true" title="Select Country" tabindex="10"  name="country" id="country" value="{{ old('country') }}">
                             @if ($countries->count())
                                 @foreach($countries as $country)
                                              <option value="{{$country->id}}" {{ old('country') == $country->id ? 'selected' : null }} > {{ $country->name}} </option>
