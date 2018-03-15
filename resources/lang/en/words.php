@@ -23,7 +23,10 @@ return [
     'content'           => 'Content',
     'professional'      => 'Professional',
     'contact_us'        => 'Contact Us',
+    'CONTACT_US'        => 'CONTACT_US',
     'home'              => 'Home',
+    'HOME'              => 'HOME',
+
     'contact'           => 'Contact',
     'name'              => 'Name',
     'email'             => 'Email',

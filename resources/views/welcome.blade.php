@@ -99,7 +99,7 @@
 
                         <div  class="col-md-5 col-sm-12">
                         
-                        <input type="text" name="search" class="form-control" placeholder="@lang('words.field_of_study')">
+                        <input type="text" name="search" class="form-control" placeholder="@lang('sentence.field_of_study')">
                            <span > @lang('sentence.search_keyword') </span>
                         </div>
                         

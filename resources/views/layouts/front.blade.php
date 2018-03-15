@@ -138,17 +138,17 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
-            <li sclass="active"><a href="{{ URL::to('') }}"><small><i class="fa fa-home"></i></small> strtoupper(@lang('words.home'))</a></li>
+            <li sclass="active"><a href="{{ URL::to('') }}"><small><i class="fa fa-home"></i></small> @lang('words.HOME')</a></li>
             </li>
              {{-- 
              <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="{{ URL::to('') }}">strtoupper(@lang('words.companies')) <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="{{ URL::to('') }}">@lang('words.companies') <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">                
-                <li><a href="{{ route('companies') }}">strtoupper(@lang('words.companies'))</a></li>                                         
+                <li><a href="{{ route('companies') }}">@lang('words.companies')</a></li>                                         
               </ul>
              --}}
-            <li><a href="{{ route('companies') }}"><small><i class="fa fa-building-o"></i></small> strtoupper(@lang('words.companies'))</a></li>                                         
-            <li><a href="{{route('contact-us') }}"><small><i class="fa fa-phone"></i></small> strtoupper(@lang('words.contact_us'))</a></li>                                         
+            <li><a href="{{ route('companies') }}"><small><i class="fa fa-building-o"></i></small> @lang('words.companies')</a></li>                                         
+            <li><a href="{{route('contact-us') }}"><small><i class="fa fa-phone"></i></small> @lang('words.CONTACT_US')</a></li>                                         
           </ul>                            
         </div>
         <!--/.nav-collapse -->       

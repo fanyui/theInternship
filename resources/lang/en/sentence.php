@@ -65,6 +65,7 @@ return [
     'what_its_like_at'          => 'A Feel of what is looks like at ',
 
     'create_company'            => 'Create Company ',
+    'internship_reward'         => 'Internship Reward',
 
 
 ];

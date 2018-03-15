@@ -114,7 +114,7 @@
 				        <span>Email: <b>{{ $address->email }}</b> </span><br>
 				        <span>Tel: <b>{{ $address->telephone }}</b> </span><br>
 				        <span>@lang('words.country'): <b>{{ $address->country->name }}</b> </span><br>
-				        <span>@lang('sentence.internship_duration'): <b>{{ $company->duration }} (@lang(words.month))</b> </span><br>
+				        <span>@lang('sentence.internship_duration'): <b>{{ $company->duration }} (@lang('words.month'))</b> </span><br>
 				        <span>@lang('sentence.app_start_period') <b>{{ $company->application_period }}</b> </span><br>
                 <span>@lang('sentence.app_end_period') <b>{{ $company->application_end_period }}</b> </span><br>
 				        <span>@lang('sentence.no_of_interns') <b>{{ $company->intern_number }}</b> </span><br>
